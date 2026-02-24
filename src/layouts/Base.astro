@@ -19,6 +19,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <title>{title}</title>
+  <script defer src="https://analytics.noru1.ro/script.js" data-website-id="1fa304d4-e56d-4959-a9c1-5039454de7fc"></script>
   {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
@@ -42,6 +43,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       <div class="flex items-center gap-6 text-sm font-medium">
         <a href="/" class="hover:text-pink-brand transition-colors">Home</a>
         <a href="/search" class="hover:text-pink-brand transition-colors">Search</a>
+        <a href="/contribute" class="hover:text-pink-brand transition-colors">Contribute</a>
         <a href="/about" class="hover:text-pink-brand transition-colors">About</a>
         <a href="/api/terms.json" class="hover:text-pink-brand transition-colors text-gray-400">API</a>
       </div>

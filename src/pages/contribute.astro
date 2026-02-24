@@ -1,0 +1,140 @@
+---
+import Base from '../layouts/Base.astro';
+export const prerender = true;
+
+const categories = ['AI/ML', 'Business', 'Cloud', 'Cybersecurity', 'Data Science', 'Design', 'DevOps', 'Programming', 'Technology', 'UX/UI', 'Web'];
+---
+<Base title="Contribute — A·I·Z" description="Suggest a new term for the AI Dictionary. Our AI reviewer will check your submission.">
+  <section class="max-w-2xl mx-auto px-4 pt-12 pb-16">
+    <h1 class="text-4xl font-black mb-2">
+      <span class="bg-gradient-to-r from-pink-brand to-orange-brand bg-clip-text text-transparent">Contribute</span>
+    </h1>
+    <p class="text-gray-500 mb-8">Suggest a new term for the dictionary. Our AI reviewer will evaluate your submission and publish it if it meets our quality standards.</p>
+
+    <form id="contribute-form" class="space-y-6">
+      <div>
+        <label for="term" class="block text-sm font-semibold text-gray-700 mb-1">Term *</label>
+        <input id="term" name="term" type="text" required placeholder="e.g. Retrieval Augmented Generation"
+          class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-pink-brand focus:outline-none transition-colors" />
+      </div>
+
+      <div>
+        <label for="category" class="block text-sm font-semibold text-gray-700 mb-1">Category *</label>
+        <select id="category" name="category" required
+          class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-pink-brand focus:outline-none transition-colors bg-white">
+          <option value="">Select a category…</option>
+          {categories.map(c => <option value={c}>{c}</option>)}
+        </select>
+      </div>
+
+      <div>
+        <label for="definition" class="block text-sm font-semibold text-gray-700 mb-1">Definition *</label>
+        <textarea id="definition" name="definition" required rows={4} placeholder="A clear, concise 2-3 sentence definition…"
+          class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-pink-brand focus:outline-none transition-colors resize-y"></textarea>
+        <p class="text-xs text-gray-400 mt-1">2-3 sentences. Be specific and technical.</p>
+      </div>
+
+      <div>
+        <label for="seeAlso" class="block text-sm font-semibold text-gray-700 mb-1">See Also</label>
+        <input id="seeAlso" name="seeAlso" type="text" placeholder="Related Term 1, Related Term 2, …"
+          class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-pink-brand focus:outline-none transition-colors" />
+        <p class="text-xs text-gray-400 mt-1">Comma-separated related terms (optional).</p>
+      </div>
+
+      <button type="submit" id="submit-btn"
+        class="w-full py-3 px-6 bg-gradient-to-r from-pink-brand to-orange-brand text-white font-bold rounded-xl hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed">
+        Submit for AI Review
+      </button>
+    </form>
+
+    <!-- Result panels -->
+    <div id="result-panel" class="hidden mt-8 p-6 rounded-xl border-2">
+    </div>
+
+    <div class="mt-12 p-6 bg-gray-50 rounded-xl">
+      <h2 class="font-bold text-lg mb-3">How it works</h2>
+      <ol class="list-decimal list-inside space-y-2 text-sm text-gray-600">
+        <li><strong>Submit</strong> your term with a definition</li>
+        <li><strong>AI Review</strong> — our AI evaluates accuracy, clarity, and relevance</li>
+        <li>If <span class="text-green-600 font-semibold">approved</span>, it's published immediately</li>
+        <li>If the AI suggests <span class="text-yellow-600 font-semibold">edits</span>, you'll see the improved version (also published)</li>
+        <li>If <span class="text-red-600 font-semibold">rejected</span>, you'll see why and can try again</li>
+      </ol>
+    </div>
+  </section>
+
+  <script>
+    const form = document.getElementById('contribute-form') as HTMLFormElement;
+    const btn = document.getElementById('submit-btn') as HTMLButtonElement;
+    const panel = document.getElementById('result-panel') as HTMLDivElement;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      btn.disabled = true;
+      btn.textContent = '⚡ AI is reviewing…';
+      panel.classList.add('hidden');
+
+      const term = (form.querySelector('#term') as HTMLInputElement).value.trim();
+      const category = (form.querySelector('#category') as HTMLSelectElement).value;
+      const definition = (form.querySelector('#definition') as HTMLTextAreaElement).value.trim();
+      const seeAlsoRaw = (form.querySelector('#seeAlso') as HTMLInputElement).value;
+      const seeAlso = seeAlsoRaw.split(',').map(s => s.trim()).filter(Boolean);
+
+      try {
+        const res = await fetch('/api/suggest.json', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ term, category, definition, seeAlso }),
+        });
+
+        const data = await res.json();
+        panel.classList.remove('hidden');
+
+        if (data.error) {
+          panel.className = 'mt-8 p-6 rounded-xl border-2 border-red-200 bg-red-50';
+          panel.innerHTML = `<p class="font-bold text-red-700">Error</p><p class="text-sm text-red-600 mt-1">${data.error}</p>`;
+        } else if (data.decision === 'approved') {
+          panel.className = 'mt-8 p-6 rounded-xl border-2 border-green-200 bg-green-50';
+          panel.innerHTML = `
+            <p class="font-bold text-green-700">✅ Approved & Published!</p>
+            <p class="text-sm text-gray-600 mt-2">${data.review || 'Your definition meets our quality standards.'}</p>
+            <div class="mt-4 p-4 bg-white rounded-lg border border-green-100">
+              <dt class="font-bold">${data.published.term} <span class="ml-2 text-xs font-semibold text-pink-600 uppercase">${data.published.category}</span></dt>
+              <dd class="mt-1 text-sm text-gray-600">${data.published.definition}</dd>
+              ${data.published.seeAlso?.length ? `<p class="mt-2 text-xs text-gray-400">See also: ${data.published.seeAlso.join(', ')}</p>` : ''}
+            </div>
+            <a href="/${data.published.letter?.toLowerCase() || 'a'}#${data.published.slug}" class="inline-block mt-3 text-sm text-pink-600 hover:text-pink-800 font-medium">View on site →</a>
+          `;
+          form.reset();
+        } else if (data.decision === 'edited') {
+          panel.className = 'mt-8 p-6 rounded-xl border-2 border-yellow-200 bg-yellow-50';
+          panel.innerHTML = `
+            <p class="font-bold text-yellow-700">✏️ Edited & Published</p>
+            <p class="text-sm text-gray-600 mt-2">${data.review || 'The AI improved your definition before publishing.'}</p>
+            <div class="mt-4 p-4 bg-white rounded-lg border border-yellow-100">
+              <dt class="font-bold">${data.published.term} <span class="ml-2 text-xs font-semibold text-pink-600 uppercase">${data.published.category}</span></dt>
+              <dd class="mt-1 text-sm text-gray-600">${data.published.definition}</dd>
+              ${data.published.seeAlso?.length ? `<p class="mt-2 text-xs text-gray-400">See also: ${data.published.seeAlso.join(', ')}</p>` : ''}
+            </div>
+            <a href="/${data.published.letter?.toLowerCase() || 'a'}#${data.published.slug}" class="inline-block mt-3 text-sm text-pink-600 hover:text-pink-800 font-medium">View on site →</a>
+          `;
+          form.reset();
+        } else if (data.decision === 'rejected') {
+          panel.className = 'mt-8 p-6 rounded-xl border-2 border-red-200 bg-red-50';
+          panel.innerHTML = `
+            <p class="font-bold text-red-700">❌ Not Published</p>
+            <p class="text-sm text-gray-600 mt-2">${data.review || 'The submission did not meet our quality standards.'}</p>
+            <p class="text-sm text-gray-500 mt-2">Feel free to revise and try again!</p>
+          `;
+        }
+      } catch (err) {
+        panel.classList.remove('hidden');
+        panel.className = 'mt-8 p-6 rounded-xl border-2 border-red-200 bg-red-50';
+        panel.innerHTML = `<p class="font-bold text-red-700">Error</p><p class="text-sm text-red-600 mt-1">Something went wrong. Please try again.</p>`;
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Submit for AI Review';
+      }
+    });
+  </script>
+</Base>
