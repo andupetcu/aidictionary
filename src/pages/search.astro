@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 ---
-<Base title="Search — AI Dictionary" description="Search across 3,600+ technology, AI, design, and programming terms.">
+<Base title="Search — A·I·Z" description="Search across 3,700+ technology, AI, design, and programming terms.">
   <section class="max-w-4xl mx-auto px-4 pt-12 pb-16">
     <h1 class="text-4xl font-black mb-8">
       <span class="bg-gradient-to-r from-pink-brand to-orange-brand bg-clip-text text-transparent">Search</span>
@@ -29,14 +29,14 @@ import Base from '../layouts/Base.astro';
     <div id="generated-result" class="hidden mt-8">
       <div class="border-2 border-orange-brand/30 rounded-xl p-6 bg-orange-50/50">
         <div class="flex items-center gap-2 mb-3">
-          <span class="text-xs font-bold text-white bg-gradient-to-r from-pink-brand to-orange-brand px-2 py-0.5 rounded-full">⚡ AI-generated</span>
+          <span class="text-xs font-bold text-white bg-gradient-to-r from-pink-brand to-orange-brand px-2 py-0.5 rounded-full">⚡ AI-generated &amp; saved</span>
         </div>
         <article class="break-inside-avoid">
           <dt>
-            <span id="gen-term" class="bg-yellow-300 px-1.5 py-0.5 font-bold text-gray-900"></span>
+            <a id="gen-term" href="#" class="bg-yellow-300 px-1.5 py-0.5 font-bold text-gray-900 hover:bg-yellow-400 transition-colors"></a>
             <span id="gen-category" class="ml-2 text-xs font-semibold text-pink-600 uppercase tracking-wider"></span>
           </dt>
-          <dd id="gen-definition" class="mt-2 text-sm text-gray-600 leading-relaxed"></dd>
+          <dd id="gen-definition" class="mt-1 text-sm text-gray-600 leading-relaxed"></dd>
           <dd id="gen-see-also" class="mt-2 text-xs text-gray-400"></dd>
         </article>
       </div>
@@ -44,107 +44,125 @@ import Base from '../layouts/Base.astro';
   </section>
 
   <script>
-    async function initSearch() {
-      const res = await fetch('/api/terms.json');
-      const data = await res.json();
-      const allTerms: Array<{term: string; definition: string; category: string; letter: string; seeAlso?: string[]}> = [];
-      for (const [letter, terms] of Object.entries(data) as [string, any[]][]) {
-        for (const t of terms) {
-          allTerms.push({ ...t, letter });
-        }
+    let debounceTimer: number;
+    const input = document.getElementById('search-input') as HTMLInputElement;
+    const results = document.getElementById('search-results')!;
+    const noResults = document.getElementById('no-results')!;
+    const noResultsQuery = document.getElementById('no-results-query')!;
+    const generateBtn = document.getElementById('generate-btn') as HTMLButtonElement;
+    const generateStatus = document.getElementById('generate-status')!;
+    const generatedResult = document.getElementById('generated-result')!;
+
+    // URL param support
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('q')) {
+      input.value = params.get('q')!;
+      doSearch(params.get('q')!);
+    }
+
+    input.addEventListener('input', (e) => {
+      const q = (e.target as HTMLInputElement).value;
+      clearTimeout(debounceTimer);
+      generatedResult.classList.add('hidden');
+      generateStatus.classList.add('hidden');
+      if (!q.trim()) {
+        results.innerHTML = '';
+        noResults.classList.add('hidden');
+        return;
       }
+      debounceTimer = window.setTimeout(() => doSearch(q), 300);
+    });
 
-      const input = document.getElementById('search-input') as HTMLInputElement;
-      const results = document.getElementById('search-results')!;
-      const noResults = document.getElementById('no-results')!;
-      const noResultsQuery = document.getElementById('no-results-query')!;
-      const generateBtn = document.getElementById('generate-btn') as HTMLButtonElement;
-      const generateStatus = document.getElementById('generate-status')!;
-      const generatedResult = document.getElementById('generated-result')!;
+    async function doSearch(query: string) {
+      const q = query.trim();
+      if (!q) return;
 
-      const params = new URLSearchParams(window.location.search);
-      if (params.get('q')) {
-        input.value = params.get('q')!;
-        doSearch(params.get('q')!);
-      }
+      try {
+        const res = await fetch('/api/search.json', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ q }),
+        });
+        const data = await res.json();
+        const matches = data.results || [];
 
-      input.addEventListener('input', (e) => doSearch((e.target as HTMLInputElement).value));
-
-      generateBtn.addEventListener('click', async () => {
-        const q = input.value.trim();
-        if (!q) return;
-
-        generateBtn.disabled = true;
-        generateBtn.textContent = 'Generating…';
-        generateStatus.textContent = 'Asking AI to define this term…';
-        generateStatus.classList.remove('hidden');
-        generatedResult.classList.add('hidden');
-
-        try {
-          const res = await fetch('/api/generate.json', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ term: q }),
-          });
-          const data = await res.json();
-
-          if (data.error) {
-            generateStatus.textContent = 'Error: ' + data.error;
-            return;
-          }
-
-          const t = data.term;
-          document.getElementById('gen-term')!.textContent = t.term;
-          document.getElementById('gen-category')!.textContent = t.category;
-          document.getElementById('gen-definition')!.textContent = t.definition;
-          const seeAlsoEl = document.getElementById('gen-see-also')!;
-          if (t.seeAlso && t.seeAlso.length > 0) {
-            seeAlsoEl.textContent = 'See also: ' + t.seeAlso.join(', ');
-          } else {
-            seeAlsoEl.textContent = '';
-          }
-
-          generateStatus.classList.add('hidden');
-          generatedResult.classList.remove('hidden');
-          noResults.classList.add('hidden');
-        } catch (err) {
-          generateStatus.textContent = 'Failed to generate. Please try again.';
-        } finally {
-          generateBtn.disabled = false;
-          generateBtn.textContent = '⚡ Generate with AI';
-        }
-      });
-
-      function doSearch(query: string) {
-        const q = query.toLowerCase().trim();
-        generatedResult.classList.add('hidden');
-        generateStatus.classList.add('hidden');
-        if (!q) { results.innerHTML = ''; noResults.classList.add('hidden'); return; }
-        const matches = allTerms.filter(t =>
-          t.term.toLowerCase().includes(q) ||
-          t.definition.toLowerCase().includes(q) ||
-          t.category.toLowerCase().includes(q)
-        );
         if (matches.length === 0) {
           results.innerHTML = '';
-          noResultsQuery.textContent = query.trim();
+          noResultsQuery.textContent = q;
           noResults.classList.remove('hidden');
           return;
         }
+
         noResults.classList.add('hidden');
-        results.innerHTML = matches.map(t => {
-          const slug = t.term.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+        results.innerHTML = matches.map((t: any) => {
+          const slug = t.slug || t.term.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+          const sourceBadge = t.source === 'llm' ? '<span class="ml-2 text-[10px] font-bold text-orange-500">⚡ AI</span>'
+            : t.source === 'user' ? '<span class="ml-2 text-[10px] font-bold text-blue-500">👤</span>' : '';
           return `
           <article class="break-inside-avoid mb-6">
             <dt>
               <a href="/definition/${slug}" class="bg-yellow-300 px-1.5 py-0.5 font-bold text-gray-900 hover:bg-yellow-400 transition-colors">${t.term}</a>
               <span class="ml-2 text-xs font-semibold text-pink-600 uppercase tracking-wider">${t.category}</span>
+              ${sourceBadge}
             </dt>
             <dd class="mt-1 text-sm text-gray-600 leading-relaxed">${t.definition}</dd>
-          </article>
-        `}).join('');
+          </article>`;
+        }).join('');
+      } catch (err) {
+        // Fallback: show error
+        results.innerHTML = '<p class="text-red-400 text-sm">Search error. Please try again.</p>';
       }
     }
-    initSearch();
+
+    generateBtn.addEventListener('click', async () => {
+      const q = input.value.trim();
+      if (!q) return;
+
+      generateBtn.disabled = true;
+      generateBtn.textContent = 'Generating…';
+      generateStatus.textContent = 'Asking AI to define this term…';
+      generateStatus.classList.remove('hidden');
+      generatedResult.classList.add('hidden');
+
+      try {
+        const res = await fetch('/api/generate.json', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ term: q }),
+        });
+        const data = await res.json();
+
+        if (data.error) {
+          generateStatus.textContent = 'Error: ' + data.error;
+          return;
+        }
+
+        const t = data.term;
+        const slug = t.slug || t.term.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+        const termEl = document.getElementById('gen-term') as HTMLAnchorElement;
+        termEl.textContent = t.term;
+        termEl.href = `/definition/${slug}`;
+        document.getElementById('gen-category')!.textContent = t.category;
+        document.getElementById('gen-definition')!.textContent = t.definition;
+        const seeAlsoEl = document.getElementById('gen-see-also')!;
+        if (t.seeAlso && t.seeAlso.length > 0) {
+          seeAlsoEl.innerHTML = 'See also: ' + t.seeAlso.map((sa: string) => {
+            const saSlug = sa.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+            return `<a href="/definition/${saSlug}" class="text-pink-600 hover:underline">${sa}</a>`;
+          }).join(', ');
+        } else {
+          seeAlsoEl.textContent = '';
+        }
+
+        generateStatus.classList.add('hidden');
+        generatedResult.classList.remove('hidden');
+        noResults.classList.add('hidden');
+      } catch (err) {
+        generateStatus.textContent = 'Failed to generate. Please try again.';
+      } finally {
+        generateBtn.disabled = false;
+        generateBtn.textContent = '⚡ Generate with AI';
+      }
+    });
   </script>
 </Base>
