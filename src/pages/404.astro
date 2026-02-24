@@ -1,0 +1,55 @@
+---
+import Base from '../layouts/Base.astro';
+import terms from '../content/en/terms.json';
+
+const totalTerms = Object.values(terms).reduce((sum, arr) => sum + arr.length, 0);
+---
+<Base title="404 — Term Not Found | A·I·Z" description="This page doesn't exist in our dictionary... yet.">
+  <section class="max-w-6xl mx-auto px-4 pt-16 pb-12">
+    <div class="text-center mb-12">
+      <h1 class="text-[8rem] md:text-[12rem] lg:text-[16rem] font-black leading-none tracking-tighter select-none">
+        <span class="bg-gradient-to-r from-pink-brand to-red-brand bg-clip-text text-transparent">4</span><span class="text-body">·</span><span class="bg-gradient-to-r from-red-brand to-orange-brand bg-clip-text text-transparent">0</span><span class="text-body">·</span><span class="bg-gradient-to-r from-orange-brand to-yellow-brand bg-clip-text text-transparent">4</span>
+      </h1>
+      <p class="text-xl md:text-2xl font-semibold text-body mt-4">The ABCs of Everything</p>
+      <p class="text-gray-500 mt-2 max-w-xl mx-auto" id="witty-message">Loading...</p>
+    </div>
+
+    <div class="flex flex-col items-center gap-4 mt-8">
+      <a href="/" class="px-8 py-3 bg-gradient-to-r from-pink-brand to-orange-brand text-white font-bold rounded-xl hover:opacity-90 transition-opacity shadow-lg">
+        ← Go Back Home
+      </a>
+      <div class="flex gap-4 text-sm">
+        <a href="/search" class="text-pink-brand hover:text-pink-700 font-medium transition-colors">Search {totalTerms}+ terms</a>
+        <span class="text-gray-300">•</span>
+        <a href="/contribute" class="text-pink-brand hover:text-pink-700 font-medium transition-colors">Contribute a term</a>
+      </div>
+    </div>
+
+    <div class="mt-16 max-w-lg mx-auto p-6 bg-gray-50 rounded-xl text-center">
+      <p class="text-sm text-gray-500">
+        <strong class="text-gray-700">Fun fact:</strong> Our dictionary has <span class="font-bold text-pink-brand">{totalTerms}</span> terms and counting. 
+        Maybe the one you're looking for just hasn't been defined yet — 
+        <a href="/contribute" class="text-pink-brand hover:text-pink-700 underline">why not add it?</a>
+      </p>
+    </div>
+  </section>
+
+  <script is:inline define:vars={{ totalTerms }}>
+    const messages = [
+      "Looks like this page wasn't in our index. Unlike our dictionary, some things just can't be defined.",
+      "Error 404: Definition not found. We've got {TOTAL}+ terms, but this URL isn't one of them.",
+      "This page has been deprecated, refactored, or never existed. Much like half the JavaScript frameworks from 2019.",
+      "Our AI tried to generate this page but even GPT drew a blank. That's a first.",
+      "You've ventured beyond Z. There's nothing here — just the void between definitions.",
+      "404: The page you're looking for is about as real as a bug-free codebase.",
+      "This URL returned undefined. Have you tried wrapping it in a try/catch?",
+      "Segmentation fault (just kidding). But this page really doesn't exist.",
+      "This page is like Schrödinger's route — it both exists and doesn't until you observe a 404.",
+      "We searched our entire dictionary. Zero results. And we have {TOTAL}+ terms.",
+      "Plot twist: the real page was the terms we defined along the way.",
+      "HTTP 404: The URL equivalent of looking for your keys and realizing they don't exist.",
+    ];
+    const msg = messages[Math.floor(Math.random() * messages.length)];
+    document.getElementById('witty-message').textContent = msg.replace(/\{TOTAL\}/g, String(totalTerms));
+  </script>
+</Base>
