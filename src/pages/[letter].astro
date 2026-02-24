@@ -70,7 +70,7 @@ const jsonLd = {
       {items.map((t) => (
         <article id={t.term.toLowerCase().replace(/[^a-z0-9]+/g, '-')} class="break-inside-avoid mb-8">
           <dt>
-            <span class="bg-yellow-highlight px-2 py-0.5 font-bold text-lg text-body inline-block">{t.term}</span>
+            <a href={`/definition/${t.term.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`} class="bg-yellow-highlight px-2 py-0.5 font-bold text-lg text-body inline-block hover:bg-yellow-300 transition-colors">{t.term}</a>
             <a href={`/category/${t.category.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`} class="ml-2 text-xs font-semibold text-pink-brand uppercase tracking-wider hover:underline">{t.category}</a>
           </dt>
           <dd class="mt-2 text-sm text-gray-600 leading-relaxed">
@@ -78,7 +78,7 @@ const jsonLd = {
             {t.seeAlso && t.seeAlso.length > 0 && (
               <p class="mt-2 text-xs text-gray-400">
                 <span class="font-medium">See also:</span> {t.seeAlso.map((sa, i) => (
-                  <>{i > 0 && ', '}<a href={`/${sa[0].toLowerCase()}#${sa.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`} class="text-pink-brand hover:underline">{sa}</a></>
+                  <>{i > 0 && ', '}<a href={`/definition/${sa.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`} class="text-pink-brand hover:underline">{sa}</a></>
                 ))}
               </p>
             )}

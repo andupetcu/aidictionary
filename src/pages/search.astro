@@ -132,15 +132,17 @@ import Base from '../layouts/Base.astro';
           return;
         }
         noResults.classList.add('hidden');
-        results.innerHTML = matches.map(t => `
+        results.innerHTML = matches.map(t => {
+          const slug = t.term.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+          return `
           <article class="break-inside-avoid mb-6">
             <dt>
-              <a href="/${t.letter.toLowerCase()}" class="bg-yellow-300 px-1.5 py-0.5 font-bold text-gray-900 hover:bg-yellow-400 transition-colors">${t.term}</a>
+              <a href="/definition/${slug}" class="bg-yellow-300 px-1.5 py-0.5 font-bold text-gray-900 hover:bg-yellow-400 transition-colors">${t.term}</a>
               <span class="ml-2 text-xs font-semibold text-pink-600 uppercase tracking-wider">${t.category}</span>
             </dt>
             <dd class="mt-1 text-sm text-gray-600 leading-relaxed">${t.definition}</dd>
           </article>
-        `).join('');
+        `}).join('');
       }
     }
     initSearch();

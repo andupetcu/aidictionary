@@ -1,0 +1,136 @@
+---
+export const prerender = false;
+
+import Base from '../../layouts/Base.astro';
+import { query } from '../../lib/db';
+
+const { slug } = Astro.params;
+
+// Fetch term from DB
+const { rows } = await query(
+  'SELECT term, slug, letter, category, definition, see_also, source, created_at FROM terms WHERE slug = $1 AND approved = true LIMIT 1',
+  [slug]
+);
+
+if (rows.length === 0) {
+  return Astro.redirect('/404');
+}
+
+const term = rows[0];
+const seeAlso: string[] = term.see_also || [];
+
+// Fetch seeAlso slugs for linking
+const seeAlsoLinks: { term: string; slug: string; letter: string }[] = [];
+if (seeAlso.length > 0) {
+  const placeholders = seeAlso.map((_, i) => `$${i + 1}`).join(', ');
+  const { rows: related } = await query(
+    `SELECT term, slug, letter FROM terms WHERE term IN (${placeholders}) AND approved = true`,
+    seeAlso
+  );
+  // Keep original order, mark which ones exist
+  for (const sa of seeAlso) {
+    const found = related.find((r: any) => r.term === sa);
+    seeAlsoLinks.push(found || { term: sa, slug: '', letter: '' });
+  }
+}
+
+const colors: Record<string, string> = {
+  'AI/ML': 'from-purple-500 to-pink-500',
+  'Business': 'from-emerald-500 to-teal-500',
+  'Cloud': 'from-sky-500 to-blue-500',
+  'Cybersecurity': 'from-red-500 to-rose-500',
+  'Data Science': 'from-violet-500 to-purple-500',
+  'Design': 'from-pink-500 to-rose-400',
+  'DevOps': 'from-orange-500 to-amber-500',
+  'Programming': 'from-blue-500 to-indigo-500',
+  'Technology': 'from-gray-600 to-gray-800',
+  'UX/UI': 'from-fuchsia-500 to-pink-500',
+  'Web': 'from-cyan-500 to-teal-500',
+};
+const gradient = colors[term.category] || 'from-pink-brand to-orange-brand';
+
+const sourceBadge = term.source === 'llm' ? '⚡ AI-generated' : term.source === 'user' ? '👤 Community' : term.source === 'arxiv' ? '📄 ArXiv' : '';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": term.term,
+  "description": term.definition,
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "A·I·Z — AI Dictionary",
+    "url": "https://aidictionary.dev"
+  },
+  "url": `https://aidictionary.dev/definition/${term.slug}`
+};
+---
+<Base title={`${term.term} — A·I·Z`} description={term.definition} jsonLd={jsonLd}>
+  <!-- Hero -->
+  <section class="max-w-4xl mx-auto px-4 pt-16 pb-8">
+    <div class="text-center">
+      <!-- Category badge -->
+      <a href={`/category/${term.category.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
+         class={`inline-block px-4 py-1.5 rounded-full text-sm font-bold text-white bg-gradient-to-r ${gradient} mb-6 hover:opacity-90 transition-opacity`}>
+        {term.category}
+      </a>
+
+      <!-- Term name -->
+      <h1 class="text-5xl md:text-7xl lg:text-8xl font-black leading-tight tracking-tight">
+        <span class="bg-gradient-to-r from-pink-brand via-red-brand to-orange-brand bg-clip-text text-transparent">
+          {term.term}
+        </span>
+      </h1>
+
+      <!-- Source badge -->
+      {sourceBadge && (
+        <span class="inline-block mt-3 px-3 py-1 text-xs font-medium text-gray-500 bg-gray-100 rounded-full">
+          {sourceBadge}
+        </span>
+      )}
+    </div>
+  </section>
+
+  <!-- Definition -->
+  <section class="max-w-3xl mx-auto px-4 pb-12">
+    <div class="p-8 bg-gray-50 rounded-2xl border border-gray-100">
+      <p class="text-lg md:text-xl leading-relaxed text-gray-700">
+        {term.definition}
+      </p>
+    </div>
+  </section>
+
+  <!-- See Also -->
+  {seeAlso.length > 0 && (
+    <section class="max-w-3xl mx-auto px-4 pb-12">
+      <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">See Also</h2>
+      <div class="flex flex-wrap gap-3">
+        {seeAlsoLinks.map((sa) => (
+          sa.slug ? (
+            <a href={`/definition/${sa.slug}`}
+               class="px-4 py-2 bg-white border-2 border-gray-200 rounded-xl text-sm font-semibold text-gray-700 hover:border-pink-brand hover:text-pink-brand transition-colors">
+              {sa.term}
+            </a>
+          ) : (
+            <span class="px-4 py-2 bg-gray-50 border-2 border-gray-100 rounded-xl text-sm font-medium text-gray-400">
+              {sa.term}
+            </span>
+          )
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- Navigation -->
+  <section class="max-w-3xl mx-auto px-4 pb-16">
+    <div class="flex flex-wrap items-center justify-between gap-4 pt-8 border-t border-gray-100">
+      <a href={`/${term.letter.toLowerCase()}`}
+         class="text-sm font-medium text-gray-500 hover:text-pink-brand transition-colors">
+        ← All "{term.letter}" terms
+      </a>
+      <div class="flex gap-4">
+        <a href="/search" class="text-sm font-medium text-gray-500 hover:text-pink-brand transition-colors">Search</a>
+        <a href="/contribute" class="text-sm font-medium text-gray-500 hover:text-pink-brand transition-colors">Contribute</a>
+      </div>
+    </div>
+  </section>
+</Base>
