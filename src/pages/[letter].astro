@@ -1,0 +1,100 @@
+---
+import Base from '../layouts/Base.astro';
+import terms from '../content/en/terms.json';
+
+export function getStaticPaths() {
+  return Object.keys(terms).map((letter) => ({
+    params: { letter: letter.toLowerCase() },
+    props: { letter, items: terms[letter] },
+  }));
+}
+
+const { letter, items } = Astro.props;
+const allLetters = Object.keys(terms).sort();
+const currentIndex = allLetters.indexOf(letter);
+const prevLetter = currentIndex > 0 ? allLetters[currentIndex - 1] : null;
+const nextLetter = currentIndex < allLetters.length - 1 ? allLetters[currentIndex + 1] : null;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": `Terms starting with ${letter}`,
+  "numberOfItems": items.length,
+  "itemListElement": items.map((t, i) => ({
+    "@type": "DefinedTerm",
+    "position": i + 1,
+    "name": t.term,
+    "description": t.definition,
+    "inDefinedTermSet": {
+      "@type": "DefinedTermSet",
+      "name": "AI Dictionary — The ABCs of Everything",
+      "url": "https://aidictionary.dev"
+    }
+  }))
+};
+---
+<Base
+  title={`${letter} — AI Dictionary`}
+  description={`All terms starting with ${letter}: ${items.slice(0, 5).map(t => t.term).join(', ')} and more.`}
+  jsonLd={jsonLd}
+>
+  <section class="max-w-6xl mx-auto px-4 pt-12 pb-16">
+    <!-- Letter nav -->
+    <nav aria-label="Letter navigation" class="flex flex-wrap gap-1.5 mb-8 justify-center">
+      {allLetters.map((l, i) => {
+        const isActive = l === letter;
+        const colors = ['from-pink-brand to-red-brand', 'from-red-brand to-orange-brand', 'from-orange-brand to-yellow-brand'];
+        const colorClass = colors[i % colors.length];
+        return (
+          <a
+            href={`/${l.toLowerCase()}`}
+            class={`w-9 h-9 flex items-center justify-center rounded-lg font-bold text-sm transition-all ${isActive ? `bg-gradient-to-br ${colorClass} text-white shadow-md scale-110` : 'bg-gray-100 text-gray-500 hover:bg-gray-200'}`}
+            aria-current={isActive ? 'page' : undefined}
+          >
+            {l}
+          </a>
+        );
+      })}
+    </nav>
+
+    <!-- Letter header -->
+    <header class="mb-10">
+      <h1 class="text-[10rem] md:text-[14rem] font-black leading-none tracking-tighter bg-gradient-to-r from-pink-brand via-red-brand via-orange-brand to-yellow-brand bg-clip-text text-transparent select-none">
+        {letter}
+      </h1>
+      <p class="text-gray-500 mt-2">{items.length} terms</p>
+    </header>
+
+    <!-- Terms -->
+    <dl class="columns-1 md:columns-2 lg:columns-3 gap-x-10">
+      {items.map((t) => (
+        <article id={t.term.toLowerCase().replace(/[^a-z0-9]+/g, '-')} class="break-inside-avoid mb-8">
+          <dt>
+            <span class="bg-yellow-highlight px-2 py-0.5 font-bold text-lg text-body inline-block">{t.term}</span>
+            <a href={`/category/${t.category.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`} class="ml-2 text-xs font-semibold text-pink-brand uppercase tracking-wider hover:underline">{t.category}</a>
+          </dt>
+          <dd class="mt-2 text-sm text-gray-600 leading-relaxed">
+            {t.definition}
+            {t.seeAlso && t.seeAlso.length > 0 && (
+              <p class="mt-2 text-xs text-gray-400">
+                <span class="font-medium">See also:</span> {t.seeAlso.map((sa, i) => (
+                  <>{i > 0 && ', '}<a href={`/${sa[0].toLowerCase()}#${sa.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`} class="text-pink-brand hover:underline">{sa}</a></>
+                ))}
+              </p>
+            )}
+          </dd>
+        </article>
+      ))}
+    </dl>
+
+    <!-- Prev/Next -->
+    <nav class="flex justify-between items-center mt-12 pt-8 border-t border-gray-100">
+      {prevLetter ? (
+        <a href={`/${prevLetter.toLowerCase()}`} class="text-lg font-bold text-gray-400 hover:text-pink-brand transition-colors">← {prevLetter}</a>
+      ) : <span />}
+      {nextLetter ? (
+        <a href={`/${nextLetter.toLowerCase()}`} class="text-lg font-bold text-gray-400 hover:text-pink-brand transition-colors">{nextLetter} →</a>
+      ) : <span />}
+    </nav>
+  </section>
+</Base>

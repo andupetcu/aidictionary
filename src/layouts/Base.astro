@@ -1,0 +1,64 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  jsonLd?: object;
+}
+
+const { title, description = "The ABCs of Everything — A comprehensive dictionary of technology, AI, design, programming, and more.", jsonLd } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalURL} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <title>{title}</title>
+  {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "AI Dictionary — The ABCs of Everything",
+    "url": "https://aidictionary.dev",
+    "description": "A comprehensive dictionary of technology, AI, design, programming, and more.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://aidictionary.dev/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  })} />
+</head>
+<body class="bg-white text-body font-sans antialiased min-h-screen flex flex-col">
+  <header class="border-b border-gray-100">
+    <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="/" class="text-2xl font-black tracking-tight">
+        <span class="bg-gradient-to-r from-pink-brand via-red-brand via-orange-brand to-yellow-brand bg-clip-text text-transparent">A·I·Z</span>
+      </a>
+      <div class="flex items-center gap-6 text-sm font-medium">
+        <a href="/" class="hover:text-pink-brand transition-colors">Home</a>
+        <a href="/search" class="hover:text-pink-brand transition-colors">Search</a>
+        <a href="/about" class="hover:text-pink-brand transition-colors">About</a>
+        <a href="/api/terms.json" class="hover:text-pink-brand transition-colors text-gray-400">API</a>
+      </div>
+    </nav>
+  </header>
+  <main class="flex-1">
+    <slot />
+  </main>
+  <footer class="border-t border-gray-100 mt-16">
+    <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400">
+      <p>© {new Date().getFullYear()} AI Dictionary — The ABCs of Everything</p>
+      <div class="flex gap-4">
+        <a href="/llms.txt" class="hover:text-pink-brand transition-colors">llms.txt</a>
+        <a href="/llms-full.txt" class="hover:text-pink-brand transition-colors">llms-full.txt</a>
+        <a href="/sitemap-index.xml" class="hover:text-pink-brand transition-colors">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

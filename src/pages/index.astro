@@ -1,0 +1,58 @@
+---
+import Base from '../layouts/Base.astro';
+import terms from '../content/en/terms.json';
+
+const letters = Object.keys(terms).sort();
+const totalTerms = Object.values(terms).reduce((sum, arr) => sum + arr.length, 0);
+---
+<Base title="AI Dictionary — The ABCs of Everything" description="A comprehensive dictionary covering technology, AI/ML, design, programming, cybersecurity, cloud, DevOps, UX/UI, and more. 300+ terms explained clearly.">
+  <!-- Hero -->
+  <section class="max-w-6xl mx-auto px-4 pt-16 pb-12">
+    <div class="text-center mb-12">
+      <h1 class="text-[8rem] md:text-[12rem] lg:text-[16rem] font-black leading-none tracking-tighter select-none">
+        <span class="bg-gradient-to-r from-pink-brand to-red-brand bg-clip-text text-transparent">A</span><span class="text-body">·</span><span class="bg-gradient-to-r from-red-brand to-orange-brand bg-clip-text text-transparent">I</span><span class="text-body">·</span><span class="bg-gradient-to-r from-orange-brand to-yellow-brand bg-clip-text text-transparent">Z</span>
+      </h1>
+      <p class="text-xl md:text-2xl font-semibold text-body mt-4">The ABCs of Everything</p>
+      <p class="text-gray-500 mt-2 max-w-xl mx-auto">A comprehensive dictionary of {totalTerms}+ terms covering technology, AI, design, programming, cybersecurity, cloud, DevOps, and more.</p>
+    </div>
+
+    <!-- A-Z Grid -->
+    <nav aria-label="Browse by letter" class="grid grid-cols-7 sm:grid-cols-9 md:grid-cols-13 gap-2 max-w-2xl mx-auto">
+      {letters.map((letter, i) => {
+        const colors = ['from-pink-brand to-red-brand', 'from-red-brand to-orange-brand', 'from-orange-brand to-yellow-brand'];
+        const colorClass = colors[i % colors.length];
+        return (
+          <a href={`/${letter.toLowerCase()}`} class={`flex items-center justify-center w-full aspect-square rounded-xl font-black text-xl bg-gradient-to-br ${colorClass} text-white hover:scale-110 transition-transform shadow-sm`}>
+            {letter}
+          </a>
+        );
+      })}
+    </nav>
+  </section>
+
+  <!-- Preview of first few letters -->
+  <section class="max-w-6xl mx-auto px-4 pb-16">
+    {letters.slice(0, 3).map((letter) => (
+      <article class="mb-12">
+        <div class="flex items-baseline gap-4 mb-6">
+          <h2 class="text-6xl font-black bg-gradient-to-r from-pink-brand via-red-brand to-orange-brand bg-clip-text text-transparent">{letter}</h2>
+          <a href={`/${letter.toLowerCase()}`} class="text-sm font-medium text-gray-400 hover:text-pink-brand transition-colors">View all →</a>
+        </div>
+        <dl class="columns-1 md:columns-2 lg:columns-3 gap-8">
+          {terms[letter].slice(0, 6).map((t) => (
+            <div class="break-inside-avoid mb-6">
+              <dt class="inline">
+                <span class="bg-yellow-highlight px-1.5 py-0.5 font-bold text-body">{t.term}</span>
+                <a href={`/category/${t.category.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`} class="ml-2 text-xs font-medium text-pink-brand uppercase tracking-wide hover:underline">{t.category}</a>
+              </dt>
+              <dd class="mt-1 text-sm text-gray-600 leading-relaxed">{t.definition}</dd>
+            </div>
+          ))}
+        </dl>
+      </article>
+    ))}
+    <div class="text-center">
+      <a href="/a" class="inline-block px-6 py-3 bg-gradient-to-r from-pink-brand to-orange-brand text-white font-bold rounded-full hover:shadow-lg transition-shadow">Browse all terms A→Z</a>
+    </div>
+  </section>
+</Base>
