@@ -1,10 +1,10 @@
-FROM node:22-alpine AS build
+FROM node:22-alpine
 WORKDIR /app
 COPY package.json ./
 RUN npm install
 COPY . .
 RUN npm run build
-
-FROM nginx:alpine
-COPY --from=build /app/dist /usr/share/nginx/html
+ENV HOST=0.0.0.0
+ENV PORT=80
 EXPOSE 80
+CMD ["node", "dist/server/entry.mjs"]
