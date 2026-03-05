@@ -105,12 +105,18 @@ async function main() {
         category TEXT NOT NULL,
         definition TEXT NOT NULL,
         see_also TEXT[] DEFAULT '{}',
+        related_terms TEXT[] DEFAULT '{}',
+        examples TEXT[] DEFAULT '{}',
         source TEXT DEFAULT 'manual',
+        source_url TEXT,
         approved BOOLEAN DEFAULT true,
         arxiv_id TEXT,
         created_at TIMESTAMPTZ DEFAULT NOW(),
         updated_at TIMESTAMPTZ DEFAULT NOW()
       );
+      ALTER TABLE terms ADD COLUMN IF NOT EXISTS related_terms TEXT[] DEFAULT '{}';
+      ALTER TABLE terms ADD COLUMN IF NOT EXISTS examples TEXT[] DEFAULT '{}';
+      ALTER TABLE terms ADD COLUMN IF NOT EXISTS source_url TEXT;
     `);
 
     let inserted = 0, updated = 0, failed = 0;
@@ -122,15 +128,29 @@ async function main() {
 
       try {
         const { rows } = await client.query(
-          `INSERT INTO terms (term, slug, letter, category, definition, see_also, source, approved, arxiv_id)
-           VALUES ($1, $2, $3, $4, $5, $6, 'arxiv', true, $7)
+          `INSERT INTO terms (term, slug, letter, category, definition, see_also, source, approved, arxiv_id, examples, related_terms, source_url)
+           VALUES ($1, $2, $3, $4, $5, $6, 'arxiv', true, $7, $8, $9, $10)
            ON CONFLICT (term) DO UPDATE SET
              definition = CASE WHEN LENGTH(EXCLUDED.definition) > LENGTH(terms.definition) THEN EXCLUDED.definition ELSE terms.definition END,
              see_also = ARRAY(SELECT DISTINCT unnest(terms.see_also || EXCLUDED.see_also)),
+             examples = ARRAY(SELECT DISTINCT unnest(terms.examples || EXCLUDED.examples)),
+             related_terms = ARRAY(SELECT DISTINCT unnest(terms.related_terms || EXCLUDED.related_terms)),
+             source_url = COALESCE(EXCLUDED.source_url, terms.source_url),
              arxiv_id = COALESCE(EXCLUDED.arxiv_id, terms.arxiv_id),
              updated_at = NOW()
            RETURNING (xmax = 0) AS is_new`,
-          [concept.term, slug, letter, concept.category, concept.definition, seeAlso, concept.arxivId || null]
+          [
+            concept.term,
+            slug,
+            letter,
+            concept.category,
+            concept.definition,
+            seeAlso,
+            concept.arxivId || null,
+            Array.isArray(concept.examples) ? concept.examples.slice(0, 2) : [],
+            Array.isArray(concept.related_terms) ? concept.related_terms : [],
+            concept.source_url || (concept.arxivId ? `https://arxiv.org/abs/${concept.arxivId}` : null),
+          ]
         );
         if (rows[0]?.is_new) inserted++;
         else updated++;

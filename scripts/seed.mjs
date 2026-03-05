@@ -28,12 +28,18 @@ async function seed() {
         category TEXT NOT NULL,
         definition TEXT NOT NULL,
         see_also TEXT[] DEFAULT '{}',
+        related_terms TEXT[] DEFAULT '{}',
+        examples TEXT[] DEFAULT '{}',
         source TEXT DEFAULT 'manual',
+        source_url TEXT,
         approved BOOLEAN DEFAULT true,
         arxiv_id TEXT,
         created_at TIMESTAMPTZ DEFAULT NOW(),
         updated_at TIMESTAMPTZ DEFAULT NOW()
       );
+      ALTER TABLE terms ADD COLUMN IF NOT EXISTS related_terms TEXT[] DEFAULT '{}';
+      ALTER TABLE terms ADD COLUMN IF NOT EXISTS examples TEXT[] DEFAULT '{}';
+      ALTER TABLE terms ADD COLUMN IF NOT EXISTS source_url TEXT;
       CREATE INDEX IF NOT EXISTS idx_terms_letter ON terms(letter);
       CREATE INDEX IF NOT EXISTS idx_terms_category ON terms(category);
       CREATE INDEX IF NOT EXISTS idx_terms_slug ON terms(slug);

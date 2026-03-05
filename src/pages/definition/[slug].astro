@@ -8,7 +8,7 @@ const { slug } = Astro.params;
 
 // Fetch term from DB
 const { rows } = await query(
-  'SELECT term, slug, letter, category, definition, see_also, source, created_at FROM terms WHERE slug = $1 AND approved = true LIMIT 1',
+  'SELECT term, slug, letter, category, definition, see_also, related_terms, examples, source, source_url, created_at FROM terms WHERE slug = $1 AND approved = true LIMIT 1',
   [slug]
 );
 
@@ -18,6 +18,8 @@ if (rows.length === 0) {
 
 const term = rows[0];
 const seeAlso: string[] = term.see_also || [];
+const relatedTerms: string[] = term.related_terms || [];
+const examples: string[] = term.examples || [];
 
 // Fetch seeAlso slugs for linking
 const seeAlsoLinks: { term: string; slug: string; letter: string }[] = [];
@@ -31,6 +33,20 @@ if (seeAlso.length > 0) {
   for (const sa of seeAlso) {
     const found = related.find((r: any) => r.term === sa);
     seeAlsoLinks.push(found || { term: sa, slug: '', letter: '' });
+  }
+}
+
+// Fetch related term slugs for linking
+const relatedLinks: { term: string; slug: string; letter: string }[] = [];
+if (relatedTerms.length > 0) {
+  const placeholders = relatedTerms.map((_, i) => `$${i + 1}`).join(', ');
+  const { rows: related } = await query(
+    `SELECT term, slug, letter FROM terms WHERE term IN (${placeholders}) AND approved = true`,
+    relatedTerms
+  );
+  for (const rt of relatedTerms) {
+    const found = related.find((r: any) => r.term === rt);
+    relatedLinks.push(found || { term: rt, slug: '', letter: '' });
   }
 }
 
@@ -49,7 +65,21 @@ const colors: Record<string, string> = {
 };
 const gradient = colors[term.category] || 'from-pink-brand to-orange-brand';
 
-const sourceBadge = term.source === 'llm' ? '⚡ AI-generated' : term.source === 'user' ? '👤 Community' : term.source === 'arxiv' ? '📄 ArXiv' : '';
+const sourceBadge = term.source === 'llm'
+  ? '⚡ AI-generated'
+  : term.source === 'user'
+    ? '👤 Community'
+    : term.source === 'arxiv'
+      ? '📄 ArXiv'
+      : term.source === 'huggingface'
+        ? '🤗 Hugging Face'
+        : term.source === 'github'
+          ? '🐙 GitHub'
+          : term.source === 'blogs'
+            ? '📰 AI Blogs'
+            : term.source === 'wikipedia'
+              ? '📚 Wikipedia'
+              : '';
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -117,6 +147,46 @@ const jsonLd = {
           )
         ))}
       </div>
+    </section>
+  )}
+
+  {relatedTerms.length > 0 && (
+    <section class="max-w-3xl mx-auto px-4 pb-12">
+      <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Related Terms</h2>
+      <div class="flex flex-wrap gap-3">
+        {relatedLinks.map((rt) => (
+          rt.slug ? (
+            <a href={`/definition/${rt.slug}`}
+               class="px-4 py-2 bg-pink-50 border border-pink-100 rounded-xl text-sm font-semibold text-pink-700 hover:bg-pink-100 transition-colors">
+              {rt.term}
+            </a>
+          ) : (
+            <span class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm font-medium text-gray-400">
+              {rt.term}
+            </span>
+          )
+        ))}
+      </div>
+    </section>
+  )}
+
+  {examples.length > 0 && (
+    <section class="max-w-3xl mx-auto px-4 pb-12">
+      <h2 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Usage in Research</h2>
+      <div class="space-y-3">
+        {examples.map((example) => (
+          <blockquote class="p-4 bg-gray-50 rounded-xl border border-gray-100">
+            <p class="text-sm md:text-base italic text-gray-700">"{example}"</p>
+          </blockquote>
+        ))}
+      </div>
+      <p class="text-xs text-gray-500 mt-3">
+        Source: {term.source_url ? (
+          <a href={term.source_url} target="_blank" rel="noopener noreferrer" class="text-pink-brand hover:underline">{term.source}</a>
+        ) : (
+          <span>{term.source}</span>
+        )}
+      </p>
     </section>
   )}
 

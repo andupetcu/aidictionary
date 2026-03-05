@@ -1,9 +1,25 @@
 ---
+export const prerender = false;
+
 import Base from '../layouts/Base.astro';
 import terms from '../content/en/terms.json';
+import { getTrendingSummary, getTrendingTerms } from '../lib/db';
 
 const letters = Object.keys(terms).sort();
 const totalTerms = Object.values(terms).reduce((sum, arr) => sum + arr.length, 0);
+
+let trendingTerms: any[] = [];
+let trendingSummary = { total: 0, bySource: [] as any[] };
+try {
+  [trendingTerms, trendingSummary] = await Promise.all([
+    getTrendingTerms(12),
+    getTrendingSummary(),
+  ]);
+} catch {
+  // Keep homepage working even if DB is unavailable.
+}
+
+const sourcesLabel = trendingSummary.bySource.slice(0, 3).map((s: any) => s.source).join(', ');
 ---
 <Base title="AI Dictionary — The ABCs of Everything" description="A comprehensive dictionary covering technology, AI/ML, design, programming, cybersecurity, cloud, DevOps, UX/UI, and more. 300+ terms explained clearly.">
   <!-- Hero -->
@@ -15,6 +31,28 @@ const totalTerms = Object.values(terms).reduce((sum, arr) => sum + arr.length, 0
       <p class="text-xl md:text-2xl font-semibold text-body mt-4">The ABCs of Everything</p>
       <p class="text-gray-500 mt-2 max-w-xl mx-auto">A comprehensive dictionary of {totalTerms}+ terms covering technology, AI, design, programming, cybersecurity, cloud, DevOps, and more.</p>
     </div>
+
+    {trendingTerms.length > 0 && (
+      <div class="mb-10">
+        <div class="mb-4 text-center">
+          <h2 class="text-2xl md:text-3xl font-black text-body">🔥 Trending This Week</h2>
+          <p class="text-sm text-gray-500 mt-1">
+            {trendingSummary.total} new terms added this week{sourcesLabel ? ` from ${sourcesLabel}` : ''}.
+          </p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 max-w-5xl mx-auto">
+          {trendingTerms.slice(0, 12).map((t) => (
+            <a href={`/definition/${t.slug}`} class="group p-4 rounded-xl border border-gray-200 bg-white hover:border-pink-brand hover:shadow-sm transition-all">
+              <div class="flex items-start justify-between gap-2">
+                <p class="font-bold text-body leading-tight">{t.term}</p>
+                <span class="text-[10px] uppercase font-semibold bg-red-100 text-red-600 px-1.5 py-0.5 rounded">New</span>
+              </div>
+              <p class="mt-2 text-xs text-pink-brand font-semibold uppercase tracking-wide">{t.category}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    )}
 
     <!-- A-Z Grid -->
     <nav aria-label="Browse by letter" class="grid grid-cols-7 sm:grid-cols-9 md:grid-cols-13 gap-2 max-w-2xl mx-auto">
