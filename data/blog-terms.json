@@ -2,15 +2,15 @@
   {
     "term": "Single-minus amplitudes",
     "category": "Quantum Gravity",
-    "definition": "A type of amplitude used in quantum field theory, particularly in the context of gravitational interactions.",
+    "definition": "A type of amplitude used in quantum field theory, particularly in the context of graviton interactions.",
     "seeAlso": [
       "Graviton",
       "Tree Amplitudes"
     ],
     "related_terms": [],
     "examples": [
-      "Used in deriving nonzero graviton tree amplitudes.",
-      "Extended to analyze gravitational interactions."
+      "Used in calculations of graviton scattering processes.",
+      "Extended to analyze nonzero graviton tree amplitudes."
     ],
     "source": "blogs",
     "source_url": "https://openai.com/index/extending-single-minus-amplitudes-to-gravitons",
@@ -26,8 +26,8 @@
     ],
     "related_terms": [],
     "examples": [
-      "Evaluates AI's effectiveness in diverse educational settings.",
-      "Tracks learning progress across different environments."
+      "Utilized to evaluate AI's effectiveness in diverse learning environments.",
+      "Helps in measuring student learning improvements."
     ],
     "source": "blogs",
     "source_url": "https://openai.com/index/understanding-ai-and-learning-outcomes",
@@ -36,15 +36,15 @@
   {
     "term": "Stateful Runtime Environment",
     "category": "AI/ML",
-    "definition": "An environment that provides persistent orchestration, memory, and secure execution for multi-step AI workflows.",
+    "definition": "An environment that provides persistent orchestration and memory for multi-step AI workflows.",
     "seeAlso": [
       "Orchestration",
       "AI Workflows"
     ],
     "related_terms": [],
     "examples": [
-      "Enables complex AI tasks with memory retention.",
-      "Supports secure execution of AI agents."
+      "Enables complex AI agents to maintain state across interactions.",
+      "Facilitates secure execution of AI tasks."
     ],
     "source": "blogs",
     "source_url": "https://openai.com/index/introducing-the-stateful-runtime-environment-for-agents-in-amazon-bedrock",
@@ -52,33 +52,50 @@
   },
   {
     "term": "DraftNEPABench",
-    "category": "Benchmark",
+    "category": "Benchmarking",
     "definition": "A benchmark designed to evaluate the efficiency of AI coding agents in accelerating federal permitting processes.",
     "seeAlso": [
-      "NEPA",
+      "Benchmarking",
       "AI Coding Agents"
     ],
     "related_terms": [],
     "examples": [
       "Demonstrates potential to reduce NEPA drafting time.",
-      "Modernizes infrastructure review processes."
+      "Used to modernize infrastructure reviews."
     ],
     "source": "blogs",
     "source_url": "https://openai.com/index/pacific-northwest-national-laboratory",
     "arxivId": null
   },
   {
-    "term": "Gemini 3.1 Flash-Lite",
-    "category": "AI/ML Model",
-    "definition": "The latest model in the Gemini series, optimized for speed and cost-efficiency in AI applications.",
+    "term": "Frontier platform",
+    "category": "AI Infrastructure",
+    "definition": "A platform developed by OpenAI for building and deploying AI applications at scale.",
     "seeAlso": [
-      "AI Model Optimization",
-      "Scalable AI"
+      "AI Infrastructure",
+      "Cloud Computing"
     ],
     "related_terms": [],
     "examples": [
-      "Designed for high-performance AI tasks.",
-      "Offers rapid processing capabilities."
+      "Integrated with AWS to enhance AI capabilities.",
+      "Supports custom models and enterprise AI agents."
+    ],
+    "source": "blogs",
+    "source_url": "https://openai.com/index/amazon-partnership",
+    "arxivId": null
+  },
+  {
+    "term": "Gemini 3.1 Flash-Lite",
+    "category": "AI/ML",
+    "definition": "A model in the Gemini series optimized for speed and cost-efficiency in AI tasks.",
+    "seeAlso": [
+      "AI Models",
+      "Cost Efficiency"
+    ],
+    "related_terms": [],
+    "examples": [
+      "Designed for high-performance AI applications.",
+      "Utilized in scenarios requiring rapid processing."
     ],
     "source": "blogs",
     "source_url": "https://deepmind.google/blog/gemini-3-1-flash-lite-built-for-intelligence-at-scale/",
@@ -86,16 +103,16 @@
   },
   {
     "term": "Nano Banana 2",
-    "category": "AI/ML Model",
-    "definition": "An advanced image generation model that combines high-speed processing with production-ready specifications.",
+    "category": "AI/ML",
+    "definition": "An advanced image generation model that combines high-speed processing with extensive world knowledge.",
     "seeAlso": [
       "Image Generation",
-      "AI Model Performance"
+      "AI Models"
     ],
     "related_terms": [],
     "examples": [
       "Provides subject consistency in generated images.",
-      "Utilizes advanced world knowledge for better outputs."
+      "Used in production-ready specifications for visual content."
     ],
     "source": "blogs",
     "source_url": "https://deepmind.google/blog/nano-banana-2-combining-pro-capabilities-with-lightning-fast-speed/",

@@ -2,14 +2,14 @@
   {
     "term": "Timber",
     "category": "Machine Learning",
-    "definition": "AOT compiler that converts classical ML models (XGBoost, LightGBM, scikit-learn, CatBoost, ONNX) into native C99 inference code for faster serving.",
+    "definition": "AOT compiler that converts classical ML models like XGBoost, LightGBM, and scikit-learn into native C99 inference code for faster serving.",
     "seeAlso": [
-      "AOT Compilation",
-      "Model Serving"
+      "Model Serving",
+      "MLOps"
     ],
     "related_terms": [],
     "examples": [
-      "Compile a scikit-learn model to C for deployment.",
+      "Compile a scikit-learn model for deployment.",
       "Serve a CatBoost model with 336x faster inference."
     ],
     "source": "github",
@@ -19,14 +19,14 @@
   {
     "term": "libdragon",
     "category": "Game Development",
-    "definition": "A software development kit (SDK) for creating homebrew games on the Nintendo 64 platform.",
+    "definition": "A software development kit for creating homebrew games on the Nintendo 64, enabling developers to utilize the console's hardware capabilities.",
     "seeAlso": [
-      "N64 Homebrew",
+      "N64 Development",
       "Game SDK"
     ],
     "related_terms": [],
     "examples": [
-      "Develop a Zelda-style game using libdragon.",
+      "Develop a Zelda-style dungeon game.",
       "Implement AI NPCs in a retro game."
     ],
     "source": "github",
@@ -36,32 +36,15 @@
   {
     "term": "KV Cache",
     "category": "AI/ML",
-    "definition": "A caching mechanism that stores key/value states across decoding steps to enhance the efficiency of Large Language Model inference.",
+    "definition": "A caching mechanism that stores key/value states across decoding steps to optimize the inference process of large language models.",
     "seeAlso": [
-      "LLM Efficiency",
-      "Caching Techniques"
+      "Caching",
+      "Inference Optimization"
     ],
     "related_terms": [],
     "examples": [
-      "Reduce redundant computations in LLMs.",
-      "Improve inference speed for AI models."
-    ],
-    "source": "github",
-    "source_url": "https://github.com/dataflowr/llm_efficiency",
-    "arxivId": null
-  },
-  {
-    "term": "LoRA",
-    "category": "AI/ML",
-    "definition": "A technique for fine-tuning Large Language Models that reduces the number of trainable parameters, making the process more efficient.",
-    "seeAlso": [
-      "Model Fine-Tuning",
-      "Parameter Efficiency"
-    ],
-    "related_terms": [],
-    "examples": [
-      "Fine-tune a large model with fewer resources.",
-      "Apply LoRA to enhance model performance."
+      "Implement KV Cache to reduce redundant computations during model inference.",
+      "Use KV Cache in conjunction with LoRA for efficient model training."
     ],
     "source": "github",
     "source_url": "https://github.com/dataflowr/llm_efficiency",
@@ -70,15 +53,15 @@
   {
     "term": "MCP Protocol",
     "category": "AI/ML",
-    "definition": "Model Context Protocol, a framework for managing interactions between AI agents and their environments, facilitating efficient communication and task execution.",
+    "definition": "A protocol for managing the context and interactions of AI agents, facilitating communication and task execution.",
     "seeAlso": [
       "AI Agent Framework",
       "Multi-Agent Systems"
     ],
     "related_terms": [],
     "examples": [
-      "Implement a multi-agent system using MCP.",
-      "Orchestrate AI tasks with context management."
+      "Utilize MCP for orchestrating multiple AI agents in a project.",
+      "Implement MCP to manage agent interactions in a coding assistant."
     ],
     "source": "github",
     "source_url": "https://github.com/antiv/mate",
@@ -87,15 +70,15 @@
   {
     "term": "OpenClaw",
     "category": "AI/ML",
-    "definition": "An AI agent framework that allows for the development and deployment of AI agents with version-controlled identities, rules, and skills.",
+    "definition": "A framework for building AI agents that can operate within a git repository, allowing version control of agent identity, rules, and skills.",
     "seeAlso": [
-      "AI Agent Framework",
+      "AI Agents",
       "Version Control"
     ],
     "related_terms": [],
     "examples": [
-      "Create a git-native AI agent.",
-      "Manage agent skills within a git repository."
+      "Create a git-native AI agent for project management.",
+      "Use OpenClaw to maintain agent configurations in a collaborative environment."
     ],
     "source": "github",
     "source_url": "https://github.com/open-gitagent/gitclaw",
@@ -104,15 +87,15 @@
   {
     "term": "DLLHijackHunter",
     "category": "Cybersecurity",
-    "definition": "An automated tool for detecting DLL hijacking vulnerabilities on Windows, providing tiered confidence scoring for exploitable DLLs.",
+    "definition": "An automated tool for detecting DLL hijacking vulnerabilities on Windows systems, providing tiered confidence scoring for identified risks.",
     "seeAlso": [
-      "DLL Injection",
-      "Cybersecurity Tools"
+      "Vulnerability Scanning",
+      "Pentesting Tools"
     ],
     "related_terms": [],
     "examples": [
-      "Scan a Windows application for DLL hijacking risks.",
-      "Use DLLHijackHunter in a pentesting workflow."
+      "Use DLLHijackHunter to scan for potential DLL hijacking vulnerabilities in applications.",
+      "Integrate DLLHijackHunter into a security assessment workflow."
     ],
     "source": "github",
     "source_url": "https://github.com/ghostvectoracademy/DLLHijackHunter",

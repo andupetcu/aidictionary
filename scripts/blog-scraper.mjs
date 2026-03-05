@@ -15,7 +15,7 @@ const FEEDS = [
   // Anthropic has no public RSS feed
   { name: 'OpenAI', url: 'https://openai.com/blog/rss.xml' },
   { name: 'DeepMind', url: 'https://deepmind.google/blog/rss.xml' },
-  { name: 'Meta AI', url: 'https://ai.meta.com/blog/rss.xml/' },
+  // Meta AI has no public RSS feed (requires Facebook auth)
   { name: 'Google AI Blog', url: 'https://blog.research.google/feeds/posts/default?alt=rss' },
   { name: 'Hugging Face Blog', url: 'https://huggingface.co/blog/feed.xml' },
 ];

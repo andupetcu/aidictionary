@@ -2,32 +2,15 @@
   {
     "term": "Detection Transformer (DETR)",
     "category": "AI/ML",
-    "definition": "A model architecture designed for object detection that uses transformers to predict bounding boxes and class labels directly from images.",
+    "definition": "A model architecture for object detection that uses transformers to predict bounding boxes and class labels directly from images.",
     "seeAlso": [
       "Object Detection",
       "Transformer"
     ],
     "related_terms": [],
     "examples": [
-      "Used in autonomous vehicle systems for detecting pedestrians.",
+      "Used in autonomous driving systems for detecting pedestrians.",
       "Applied in surveillance systems for identifying objects of interest."
-    ],
-    "source": "huggingface",
-    "source_url": "https://huggingface.co/papers/2603.01847",
-    "arxivId": null
-  },
-  {
-    "term": "Deep Ensembles",
-    "category": "AI/ML",
-    "definition": "A method that combines multiple models to improve uncertainty estimation and prediction accuracy.",
-    "seeAlso": [
-      "Ensemble Learning",
-      "Bayesian Neural Networks"
-    ],
-    "related_terms": [],
-    "examples": [
-      "Utilized in medical diagnosis to assess uncertainty in predictions.",
-      "Employed in financial forecasting to gauge risk."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/papers/2603.01847",
@@ -36,15 +19,15 @@
   {
     "term": "Monte Carlo Dropout",
     "category": "AI/ML",
-    "definition": "A technique used to estimate uncertainty in neural networks by applying dropout during inference.",
+    "definition": "A technique used to estimate uncertainty in neural networks by applying dropout during inference to simulate multiple forward passes.",
     "seeAlso": [
-      "Dropout",
-      "Bayesian Inference"
+      "Uncertainty Estimation",
+      "Dropout"
     ],
     "related_terms": [],
     "examples": [
-      "Implemented in image classification tasks to quantify model confidence.",
-      "Used in reinforcement learning to explore uncertain environments."
+      "Used in medical imaging to assess the reliability of predictions.",
+      "Applied in autonomous vehicles to evaluate detection confidence."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/papers/2603.01847",
@@ -53,15 +36,15 @@
   {
     "term": "EmbodiedSplat",
     "category": "AI/ML",
-    "definition": "An online feed-forward model for 3D scene understanding that allows for real-time reconstruction and semantic understanding.",
+    "definition": "An online feed-forward model for 3D scene understanding that allows for real-time reconstruction and semantic understanding from streaming images.",
     "seeAlso": [
-      "3D Reconstruction",
-      "Semantic Segmentation"
+      "3D Scene Understanding",
+      "Real-Time Processing"
     ],
     "related_terms": [],
     "examples": [
-      "Applied in robotics for real-time navigation and obstacle avoidance.",
-      "Used in augmented reality applications for interactive scene understanding."
+      "Utilized in robotics for navigation and interaction in dynamic environments.",
+      "Applied in augmented reality for real-time scene mapping."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/papers/2603.04254",
@@ -70,49 +53,32 @@
   {
     "term": "RIVER Bench",
     "category": "AI/ML",
-    "definition": "A benchmark designed to evaluate real-time interaction capabilities of video large language models.",
+    "definition": "A benchmark designed to evaluate real-time video comprehension capabilities of multimodal large language models.",
     "seeAlso": [
-      "Benchmarking",
-      "Multimodal Learning"
+      "Multimodal Models",
+      "Video Comprehension"
     ],
     "related_terms": [],
     "examples": [
-      "Used to assess the performance of AI companions in interactive video scenarios.",
-      "Evaluated for real-time video comprehension tasks."
+      "Used to assess AI companions in interactive gaming scenarios.",
+      "Applied in video analysis for real-time feedback systems."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/papers/2603.03985",
     "arxivId": null
   },
   {
-    "term": "MUSE",
-    "category": "AI/ML",
-    "definition": "A platform for multimodal safety evaluation of large language models across various input types.",
-    "seeAlso": [
-      "Safety Evaluation",
-      "Cross-Modal Learning"
-    ],
-    "related_terms": [],
-    "examples": [
-      "Utilized for testing LLMs in audio and visual contexts.",
-      "Implemented in red-teaming exercises to identify vulnerabilities."
-    ],
-    "source": "huggingface",
-    "source_url": "https://huggingface.co/papers/2603.02482",
-    "arxivId": null
-  },
-  {
     "term": "Structure of Thought (SoT)",
     "category": "AI/ML",
-    "definition": "A prompting technique that guides models to construct intermediate text structures for improved performance.",
+    "definition": "A prompting technique that guides models to construct intermediate text structures to enhance performance in text processing tasks.",
     "seeAlso": [
       "Prompt Engineering",
       "Text Processing"
     ],
     "related_terms": [],
     "examples": [
-      "Applied in enhancing comprehension tasks across multiple model families.",
-      "Used to improve performance in complex reading tasks."
+      "Implemented in educational tools to improve comprehension.",
+      "Used in chatbots to provide structured responses."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/papers/2603.03790",
@@ -121,7 +87,7 @@
   {
     "term": "CubeComposer",
     "category": "AI/ML",
-    "definition": "A spatio-temporal autoregressive diffusion model for generating high-resolution 360° videos.",
+    "definition": "A spatio-temporal autoregressive diffusion model for generating high-resolution 360° videos from perspective inputs.",
     "seeAlso": [
       "Video Generation",
       "Diffusion Models"
@@ -138,15 +104,15 @@
   {
     "term": "SWE-CI",
     "category": "AI/ML",
-    "definition": "A benchmark for evaluating the capabilities of agents in maintaining codebases through continuous integration.",
+    "definition": "A benchmark for evaluating the capabilities of LLM-powered agents in maintaining codebases through continuous integration.",
     "seeAlso": [
       "Continuous Integration",
-      "Software Engineering"
+      "Code Generation"
     ],
     "related_terms": [],
     "examples": [
-      "Utilized to assess LLMs in automating software development tasks.",
-      "Implemented in evaluating long-term maintainability of software projects."
+      "Used to assess AI tools for software development efficiency.",
+      "Applied in automated testing frameworks for code reliability."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/papers/2603.03823",
@@ -157,13 +123,13 @@
     "category": "AI/ML",
     "definition": "A learning paradigm that enables collaborative optimization among heterogeneous agents in reinforcement learning.",
     "seeAlso": [
-      "Multi-Agent Reinforcement Learning",
-      "Collaborative Learning"
+      "Multi-Agent Systems",
+      "Reinforcement Learning"
     ],
     "related_terms": [],
     "examples": [
-      "Applied in training AI agents for cooperative tasks in gaming.",
-      "Used in simulations where multiple agents must work together."
+      "Utilized in gaming environments for cooperative strategies.",
+      "Applied in robotics for task sharing among different agents."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/papers/2603.02604",
@@ -172,15 +138,15 @@
   {
     "term": "MemSifter",
     "category": "AI/ML",
-    "definition": "A framework that offloads memory retrieval processes to a smaller proxy model to enhance efficiency.",
+    "definition": "A framework that offloads memory retrieval in LLMs to a smaller proxy model to enhance efficiency and reduce computational burden.",
     "seeAlso": [
       "Memory Retrieval",
-      "Proxy Models"
+      "Large Language Models"
     ],
     "related_terms": [],
     "examples": [
-      "Implemented in LLMs to improve long-term memory management.",
-      "Used to reduce computational costs in memory-intensive tasks."
+      "Used in AI applications requiring long-term memory management.",
+      "Applied in chatbots for maintaining context over extended conversations."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/papers/2603.03379",
@@ -189,15 +155,15 @@
   {
     "term": "Proact-VL",
     "category": "AI/ML",
-    "definition": "A proactive video large language model designed for real-time AI companion interactions.",
+    "definition": "A proactive video large language model designed for real-time interactive experiences with AI companions.",
     "seeAlso": [
-      "AI Companions",
-      "Real-Time Interaction"
+      "Interactive AI",
+      "Real-Time Processing"
     ],
     "related_terms": [],
     "examples": [
-      "Used in gaming scenarios for dynamic commentary.",
-      "Applied in user guidance systems for interactive experiences."
+      "Implemented in gaming for dynamic commentary.",
+      "Used in virtual assistants for user guidance in real-time."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/papers/2603.03447",
@@ -206,15 +172,15 @@
   {
     "term": "Memex",
     "category": "AI/ML",
-    "definition": "An indexed experience memory mechanism that compresses context without discarding evidence for LLMs.",
+    "definition": "An indexed experience memory mechanism that compresses context in LLMs without discarding evidence, aiding long-horizon tasks.",
     "seeAlso": [
-      "Memory Management",
-      "Contextual Learning"
+      "Experience Replay",
+      "Long-Horizon Tasks"
     ],
     "related_terms": [],
     "examples": [
-      "Utilized in long-horizon tasks to retain important information.",
-      "Applied in scenarios requiring efficient context handling."
+      "Used in AI agents for maintaining context over extended interactions.",
+      "Applied in educational tools for tracking student progress."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/papers/2603.04257",
@@ -230,8 +196,8 @@
     ],
     "related_terms": [],
     "examples": [
-      "Used in animation for realistic character interactions.",
-      "Applied in robotics for understanding human movements."
+      "Utilized in animation for realistic character movements.",
+      "Applied in robotics for simulating human interactions with objects."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/papers/2603.04338",
@@ -240,49 +206,32 @@
   {
     "term": "Phi-4-reasoning-vision-15B",
     "category": "AI/ML",
-    "definition": "A compact open-weight multimodal reasoning model designed for vision and language tasks.",
+    "definition": "A compact open-weight multimodal reasoning model designed for efficient performance in vision and language tasks.",
     "seeAlso": [
       "Multimodal Models",
-      "Reasoning Models"
+      "Reasoning"
     ],
     "related_terms": [],
     "examples": [
-      "Applied in tasks requiring integration of visual and textual information.",
-      "Used in scientific reasoning applications."
+      "Used in applications requiring both visual and textual understanding.",
+      "Applied in scientific research for data interpretation."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/papers/2603.03975",
     "arxivId": null
   },
   {
-    "term": "Helios",
-    "category": "AI/ML",
-    "definition": "A video generation model capable of real-time generation at high frame rates and resolutions.",
-    "seeAlso": [
-      "Video Generation",
-      "Real-Time Processing"
-    ],
-    "related_terms": [],
-    "examples": [
-      "Utilized in live streaming applications for high-quality video output.",
-      "Applied in gaming for real-time video rendering."
-    ],
-    "source": "huggingface",
-    "source_url": "https://huggingface.co/papers/2603.04379",
-    "arxivId": null
-  },
-  {
     "term": "ROSA2",
     "category": "AI/ML",
-    "definition": "A framework for test-time policy adaptation in multi-turn interactions to align LLMs with user needs.",
+    "definition": "A framework for test-time policy adaptation in multi-turn interactions, optimizing both instructions and model weights.",
     "seeAlso": [
-      "Test-Time Training",
-      "Policy Adaptation"
+      "Test-Time Adaptation",
+      "Multi-Turn Interactions"
     ],
     "related_terms": [],
     "examples": [
       "Used in conversational agents to improve user interaction.",
-      "Applied in dynamic environments where user preferences change."
+      "Applied in customer service bots for dynamic response adjustment."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/papers/2603.01375",
@@ -291,83 +240,48 @@
   {
     "term": "Likelihood-Free Policy Optimization (LFPO)",
     "category": "AI/ML",
-    "definition": "A framework for optimizing policies in masked diffusion models without requiring likelihood computation.",
+    "definition": "A framework for optimizing policies in reinforcement learning without requiring exact likelihood computations.",
     "seeAlso": [
       "Reinforcement Learning",
-      "Diffusion Models"
+      "Policy Optimization"
     ],
     "related_terms": [],
     "examples": [
-      "Applied in mathematical reasoning tasks to enhance model performance.",
-      "Used in code generation for improving accuracy."
+      "Used in applications requiring high accuracy in uncertain environments.",
+      "Applied in AI systems for complex decision-making tasks."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/papers/2603.01563",
     "arxivId": null
   },
   {
-    "term": "ParEVO",
-    "category": "AI/ML",
-    "definition": "A framework for synthesizing high-performance parallel algorithms for irregular data structures.",
-    "seeAlso": [
-      "Parallel Computing",
-      "Algorithm Synthesis"
-    ],
-    "related_terms": [],
-    "examples": [
-      "Utilized in optimizing performance for complex data structures.",
-      "Applied in high-performance computing tasks."
-    ],
-    "source": "huggingface",
-    "source_url": "https://huggingface.co/papers/2603.02510",
-    "arxivId": null
-  },
-  {
     "term": "QEDBench",
     "category": "AI/ML",
-    "definition": "A benchmark for evaluating the alignment of automated evaluation systems with human expert judgments in mathematical proofs.",
+    "definition": "A benchmark for evaluating the alignment of automated evaluation systems with human experts in mathematical proofs.",
     "seeAlso": [
       "Automated Evaluation",
-      "Benchmarking"
+      "Mathematical Reasoning"
     ],
     "related_terms": [],
     "examples": [
-      "Used to assess the reliability of LLMs in mathematical reasoning.",
-      "Applied in educational tools for evaluating student proofs."
+      "Used in educational technology for assessing student performance.",
+      "Applied in AI research for improving proof verification systems."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/papers/2602.20629",
     "arxivId": null
   },
   {
-    "term": "Machine Unlearning",
-    "category": "AI/ML",
-    "definition": "A process that enables a model to forget specific data to ensure privacy and reliability.",
-    "seeAlso": [
-      "Data Privacy",
-      "Model Reliability"
-    ],
-    "related_terms": [],
-    "examples": [
-      "Implemented in systems that require compliance with data protection regulations.",
-      "Used in scenarios where models must adapt to changing data without retaining sensitive information."
-    ],
-    "source": "huggingface",
-    "source_url": "https://huggingface.co/papers/2602.21773",
-    "arxivId": null
-  },
-  {
     "term": "ProbCOPA",
     "category": "AI/ML",
-    "definition": "A dataset designed for evaluating probabilistic inferences made by humans and large language models.",
+    "definition": "A dataset of handcrafted probabilistic inferences annotated for inference likelihood.",
     "seeAlso": [
-      "Probabilistic Reasoning",
-      "Dataset"
+      "Probabilistic Inference"
     ],
     "related_terms": [],
     "examples": [
-      "Used to analyze the reasoning capabilities of LLMs in uncertain scenarios.",
-      "Applied in cognitive science research to understand human inference."
+      "Used to evaluate human reasoning against LLMs.",
+      "Contains 210 inferences graded by human participants."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/papers/2602.23546",
@@ -376,213 +290,144 @@
   {
     "term": "Transformers",
     "category": "AI/ML",
-    "definition": "A type of neural network architecture that uses self-attention mechanisms to process sequential data, particularly effective in natural language processing tasks.",
+    "definition": "A model architecture that uses self-attention mechanisms to process sequential data.",
     "seeAlso": [
       "Attention Mechanism"
     ],
     "related_terms": [],
     "examples": [
-      "BERT",
-      "GPT-3"
+      "Used in NLP tasks like translation and summarization.",
+      "Foundation for models like BERT and GPT."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/papers/2602.22600",
     "arxivId": null
   },
   {
-    "term": "Text-to-Image Models",
+    "term": "BBQ",
     "category": "AI/ML",
-    "definition": "Models that generate images from textual descriptions, leveraging deep learning techniques to create visual content based on input text.",
+    "definition": "A large-scale text-to-image model that conditions on numeric bounding boxes and RGB triplets.",
     "seeAlso": [
-      "Generative Adversarial Networks (GANs)"
+      "Text-to-Image Models"
     ],
     "related_terms": [],
     "examples": [
-      "DALL-E",
-      "BBQ"
+      "Enables precise control over object location and color in generated images.",
+      "Improves professional workflows requiring detailed specifications."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/papers/2602.20672",
     "arxivId": null
   },
   {
-    "term": "Large Language Models (LLMs)",
+    "term": "SciDER",
     "category": "AI/ML",
-    "definition": "Deep learning models trained on vast amounts of text data to understand and generate human-like text.",
+    "definition": "A data-centric end-to-end system for automating the research lifecycle in scientific discovery.",
     "seeAlso": [
-      "GPT",
-      "BERT"
+      "Automated Scientific Discovery"
     ],
     "related_terms": [],
     "examples": [
-      "ChatGPT",
-      "GroupGPT"
+      "Collaboratively parses and analyzes raw scientific data.",
+      "Generates hypotheses based on specific data characteristics."
     ],
     "source": "huggingface",
-    "source_url": "https://huggingface.co/papers/2603.01059",
+    "source_url": "https://huggingface.co/papers/2603.01421",
     "arxivId": null
   },
   {
-    "term": "Mixture-of-Experts (MoE)",
+    "term": "DynaMoE",
     "category": "AI/ML",
-    "definition": "A neural network architecture that activates a subset of experts (sub-networks) for each input, allowing for efficient scaling and specialization.",
+    "definition": "A framework for dynamic token-level expert activation in Mixture-of-Experts neural networks.",
     "seeAlso": [
-      "Dynamic Routing"
+      "Mixture-of-Experts"
     ],
     "related_terms": [],
     "examples": [
-      "DynaMoE"
+      "Allows varying the number of active experts based on input complexity.",
+      "Improves computational efficiency in neural networks."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/papers/2603.01697",
     "arxivId": null
   },
   {
-    "term": "Energy-Based Model (EBM)",
+    "term": "Riemannian Graph Gluing",
     "category": "AI/ML",
-    "definition": "A probabilistic model that defines a distribution over data by associating an energy value with each configuration, used for tasks like generative modeling.",
+    "definition": "A method for integrating knowledge across diverse domains in graph foundation models.",
     "seeAlso": [
-      "Variational Autoencoder"
+      "Graph Neural Networks"
     ],
     "related_terms": [],
     "examples": [
-      "Spilled Energy in LLMs"
-    ],
-    "source": "huggingface",
-    "source_url": "https://huggingface.co/papers/2602.18671",
-    "arxivId": null
-  },
-  {
-    "term": "Classifier-Free Guidance (CFG)",
-    "category": "AI/ML",
-    "definition": "A technique used in generative models to enhance the alignment of generated outputs with desired semantics without relying on a separate classifier.",
-    "seeAlso": [
-      "Diffusion Models"
-    ],
-    "related_terms": [],
-    "examples": [
-      "CFG-Ctrl"
-    ],
-    "source": "huggingface",
-    "source_url": "https://huggingface.co/papers/2603.03281",
-    "arxivId": null
-  },
-  {
-    "term": "Riemannian Geometry",
-    "category": "Mathematics/AI/ML",
-    "definition": "A branch of differential geometry that studies curved surfaces and spaces, applied in machine learning for understanding data manifold structures.",
-    "seeAlso": [
-      "Geometric Deep Learning"
-    ],
-    "related_terms": [],
-    "examples": [
-      "Multi-Domain Riemannian Graph Gluing"
+      "Merges graph datasets into a unified Riemannian manifold.",
+      "Enhances performance in target domains through multi-domain pre-training."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/papers/2603.00618",
     "arxivId": null
   },
   {
-    "term": "Conditioned Activation Transport (CAT)",
+    "term": "Energy-Based Model",
     "category": "AI/ML",
-    "definition": "A framework that uses geometry-based conditioning mechanisms to control the activation of models during inference, particularly in text-to-image generation.",
+    "definition": "A model that uses energy functions to represent probability distributions over data.",
     "seeAlso": [
-      "Activation Steering"
+      "Probabilistic Models"
     ],
     "related_terms": [],
     "examples": [
-      "T2I Safety Steering"
+      "Reinterprets LLM softmax classifiers as EBMs.",
+      "Tracks energy spills to correlate with factual errors."
     ],
     "source": "huggingface",
-    "source_url": "https://huggingface.co/papers/2603.03163",
+    "source_url": "https://huggingface.co/papers/2602.18671",
     "arxivId": null
   },
   {
-    "term": "Surgical Post-Training (SPoT)",
+    "term": "Qwen3-Coder-Next",
     "category": "AI/ML",
-    "definition": "A paradigm for enhancing the reasoning capabilities of language models while minimizing catastrophic forgetting through targeted data rectification.",
+    "definition": "An open-weight language model specialized for coding agents with efficient inference.",
     "seeAlso": [
-      "Post-Training"
+      "Language Models"
     ],
     "related_terms": [],
     "examples": [
-      "Enhancing LLMs"
+      "Activates only a subset of parameters during inference.",
+      "Trained through large-scale synthesis of coding tasks."
     ],
     "source": "huggingface",
-    "source_url": "https://huggingface.co/papers/2603.01683",
+    "source_url": "https://huggingface.co/papers/2603.00729",
     "arxivId": null
   },
   {
-    "term": "InfoPO (Information-Driven Policy Optimization)",
+    "term": "Large Language Model (LLM)",
     "category": "AI/ML",
-    "definition": "An approach that optimizes agent interactions by focusing on information gain during multi-turn dialogues to improve decision-making.",
+    "definition": "A type of artificial intelligence model that is trained on vast amounts of text data to understand and generate human-like language.",
     "seeAlso": [
-      "Reinforcement Learning"
+      "Transformer",
+      "Natural Language Processing"
     ],
     "related_terms": [],
     "examples": [
-      "User-Centric Agents"
+      "GPT-3",
+      "BERT"
     ],
     "source": "huggingface",
-    "source_url": "https://huggingface.co/papers/2603.00656",
+    "source_url": "https://huggingface.co/papers/2602.17100",
     "arxivId": null
   },
   {
-    "term": "Chain-of-World (CoWVLA)",
+    "term": "Multi-Agent System (MAS)",
     "category": "AI/ML",
-    "definition": "A paradigm that integrates world-model reasoning with latent motion representation for improved predictive capabilities in vision-language-action models.",
+    "definition": "A system composed of multiple interacting intelligent agents that can work together to solve complex problems.",
     "seeAlso": [
-      "World Models"
+      "Reinforcement Learning",
+      "Agent-Based Modeling"
     ],
     "related_terms": [],
     "examples": [
-      "Latent Motion Representation"
-    ],
-    "source": "huggingface",
-    "source_url": "https://huggingface.co/papers/2603.03195",
-    "arxivId": null
-  },
-  {
-    "term": "Whisper-RIR-Mega",
-    "category": "AI/ML",
-    "definition": "A benchmark dataset designed for evaluating the robustness of automatic speech recognition systems against varying room acoustics.",
-    "seeAlso": [
-      "ASR Benchmarks"
-    ],
-    "related_terms": [],
-    "examples": [
-      "Evaluating ASR Models"
-    ],
-    "source": "huggingface",
-    "source_url": "https://huggingface.co/papers/2603.02252",
-    "arxivId": null
-  },
-  {
-    "term": "Utonia",
-    "category": "AI/ML",
-    "definition": "A self-supervised point transformer encoder designed to unify point cloud representations across diverse domains for improved perception capabilities.",
-    "seeAlso": [
-      "Point Cloud Processing"
-    ],
-    "related_terms": [],
-    "examples": [
-      "Remote Sensing",
-      "Indoor RGB-D Sequences"
-    ],
-    "source": "huggingface",
-    "source_url": "https://huggingface.co/papers/2603.03283",
-    "arxivId": null
-  },
-  {
-    "term": "AgentConductor",
-    "category": "AI/ML",
-    "definition": "A framework for evolving interaction topologies in multi-agent systems to enhance performance in tasks like code generation through collaborative reasoning.",
-    "seeAlso": [
-      "Multi-Agent Systems"
-    ],
-    "related_terms": [],
-    "examples": [
-      "Competition-Level Code Generation"
+      "Robotic swarms",
+      "Collaborative robots"
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/papers/2602.17100",
@@ -590,95 +435,67 @@
   },
   {
     "term": "Matrix Multiplication",
-    "category": "AI/ML",
-    "definition": "A mathematical operation that produces a matrix from two matrices by multiplying corresponding elements and summing the results.",
+    "category": "Programming",
+    "definition": "An operation that produces a matrix from two matrices by multiplying rows by columns.",
     "seeAlso": [
-      "Linear Algebra"
+      "Linear Algebra",
+      "Tensor Operations"
     ],
     "related_terms": [],
     "examples": [
-      "Used in neural network computations.",
-      "Essential for algorithms in computer graphics."
+      "Used in neural network computations",
+      "Graphical transformations"
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/papers/2603.02398",
     "arxivId": null
   },
   {
-    "term": "Code Agent",
-    "category": "AI/ML",
-    "definition": "An AI system designed to understand and manipulate code, often used for automated bug fixing and code generation.",
-    "seeAlso": [
-      "Automated Code Review"
-    ],
-    "related_terms": [],
-    "examples": [
-      "BeyondSWE benchmark evaluates code agents.",
-      "Used in IDEs for real-time code suggestions."
-    ],
-    "source": "huggingface",
-    "source_url": "https://huggingface.co/papers/2603.03194",
-    "arxivId": null
-  },
-  {
     "term": "Multi-Agent Framework",
     "category": "AI/ML",
-    "definition": "A system where multiple agents interact and collaborate to solve complex problems or perform tasks.",
+    "definition": "A system architecture that allows multiple agents to interact and collaborate to achieve a common goal.",
     "seeAlso": [
-      "Reinforcement Learning"
+      "Agent-Based Systems",
+      "Collaborative AI"
     ],
     "related_terms": [],
     "examples": [
-      "Used in simulations for evolving math problems.",
-      "Applied in robotics for coordinated task execution."
+      "Code2Math's problem evolution",
+      "Distributed AI systems"
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/papers/2603.03202",
     "arxivId": null
   },
   {
-    "term": "Multimodal Pretraining",
+    "term": "Diffusion Model",
     "category": "AI/ML",
-    "definition": "Training models on multiple types of data (e.g., text, images, audio) to improve their understanding and performance across different modalities.",
+    "definition": "A generative model that learns to produce data by simulating a diffusion process, often used in image generation.",
     "seeAlso": [
-      "Transfer Learning"
+      "Generative Adversarial Networks",
+      "Variational Autoencoders"
     ],
     "related_terms": [],
     "examples": [
-      "Used in models that analyze both text and images.",
-      "Critical for developing AI that can understand video content."
+      "Stable Diffusion",
+      "DALL-E"
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/papers/2603.03276",
     "arxivId": null
   },
   {
-    "term": "3D Tracking",
-    "category": "AI/ML",
-    "definition": "The process of estimating the three-dimensional position and movement of objects in a video or scene.",
-    "seeAlso": [
-      "Computer Vision"
-    ],
-    "related_terms": [],
-    "examples": [
-      "Track4World enables holistic 3D tracking of pixels.",
-      "Used in augmented reality applications."
-    ],
-    "source": "huggingface",
-    "source_url": "https://huggingface.co/papers/2603.02573",
-    "arxivId": null
-  },
-  {
     "term": "Token Reduction",
     "category": "AI/ML",
-    "definition": "A technique to optimize the number of tokens processed by models, improving efficiency and reducing computational load.",
+    "definition": "A technique used to optimize the number of tokens processed in models, improving efficiency and reducing computational load.",
     "seeAlso": [
-      "Model Pruning"
+      "Pruning",
+      "Model Compression"
     ],
     "related_terms": [],
     "examples": [
-      "Applied in Video Large Language Models for efficiency.",
-      "Helps in reducing latency in real-time applications."
+      "Optimizing Video Large Language Models",
+      "Reducing input size for NLP tasks"
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/papers/2603.01400",
@@ -687,14 +504,15 @@
   {
     "term": "Unified Multimodal Models",
     "category": "AI/ML",
-    "definition": "Models that integrate multiple modalities (e.g., text, image, audio) into a single framework for improved understanding and generation.",
+    "definition": "Models that can process and generate multiple types of data (e.g., text, images, audio) in a unified framework.",
     "seeAlso": [
-      "Generative Models"
+      "Multimodal Learning",
+      "Cross-Modal Retrieval"
     ],
     "related_terms": [],
     "examples": [
-      "UniG2U-Bench evaluates multimodal understanding.",
-      "Used in applications requiring cross-modal interactions."
+      "CLIP",
+      "DALL-E"
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/papers/2603.03241",
@@ -705,44 +523,29 @@
     "category": "AI/ML",
     "definition": "A method of video editing that utilizes natural language instructions to guide the editing process.",
     "seeAlso": [
-      "Generative Adversarial Networks"
+      "Generative Models",
+      "Video Processing"
     ],
     "related_terms": [],
     "examples": [
-      "Kiwi-Edit enhances video editing with instruction guidance.",
-      "Used in AI-driven video production tools."
+      "Kiwi-Edit system",
+      "AI-assisted video editing tools"
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/papers/2603.02175",
     "arxivId": null
   },
   {
-    "term": "Character Animation",
+    "term": "Llama-2",
     "category": "AI/ML",
-    "definition": "The process of creating lifelike movements for characters in videos or games, often using AI to enhance realism.",
-    "seeAlso": [
-      "Generative Models"
-    ],
-    "related_terms": [],
-    "examples": [
-      "Kling-MotionControl enables robust character animation.",
-      "Used in film and video game production."
-    ],
-    "source": "huggingface",
-    "source_url": "https://huggingface.co/papers/2603.03160",
-    "arxivId": null
-  },
-  {
-    "term": "Llama 2",
-    "category": "AI/ML",
-    "definition": "A family of large language models developed by Meta for conversational AI tasks.",
+    "definition": "A family of large language models developed by Meta for text generation tasks.",
     "seeAlso": [
       "Transformer"
     ],
     "related_terms": [],
     "examples": [
-      "Used for chatbots",
-      "Applied in text generation tasks"
+      "Used for conversational AI applications.",
+      "Can be fine-tuned for specific text generation tasks."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/meta-llama/Llama-2-7b-chat-hf",
@@ -757,8 +560,8 @@
     ],
     "related_terms": [],
     "examples": [
-      "Generating images from textual descriptions",
-      "Art creation"
+      "Generates images from textual descriptions.",
+      "Utilized in creative applications like art generation."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/black-forest-labs/FLUX.1-schnell",
@@ -767,14 +570,14 @@
   {
     "term": "Mixtral",
     "category": "AI/ML",
-    "definition": "A model designed for instruction-based tasks, enhancing user interaction with AI.",
+    "definition": "A model designed for instruction-based text generation and understanding.",
     "seeAlso": [
       "Instruction Tuning"
     ],
     "related_terms": [],
     "examples": [
-      "Used in educational tools",
-      "Interactive AI systems"
+      "Can be used for generating instructional content.",
+      "Fine-tuned for multilingual capabilities."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/mistralai/Mixtral-8x7B-Instruct-v0.1",
@@ -783,14 +586,14 @@
   {
     "term": "GPT-OSS",
     "category": "AI/ML",
-    "definition": "An open-source variant of the GPT model family, optimized for various tasks.",
+    "definition": "An open-source variant of the GPT model family for text generation.",
     "seeAlso": [
-      "GPT"
+      "GPT-3"
     ],
     "related_terms": [],
     "examples": [
-      "Text generation",
-      "Conversational agents"
+      "Used for building chatbots.",
+      "Can generate creative writing and code."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/openai/gpt-oss-120b",
@@ -799,62 +602,30 @@
   {
     "term": "Sentence Transformers",
     "category": "AI/ML",
-    "definition": "A framework for generating sentence embeddings for various NLP tasks.",
+    "definition": "A framework for generating sentence embeddings for semantic similarity tasks.",
     "seeAlso": [
       "BERT"
     ],
     "related_terms": [],
     "examples": [
-      "Semantic similarity",
-      "Information retrieval"
+      "Used in search engines to improve query understanding.",
+      "Facilitates clustering of similar sentences."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2",
     "arxivId": null
   },
   {
-    "term": "Mistral",
-    "category": "AI/ML",
-    "definition": "A family of models focused on text generation and conversational AI.",
-    "seeAlso": [
-      "Transformer"
-    ],
-    "related_terms": [],
-    "examples": [
-      "Chatbots",
-      "Content creation"
-    ],
-    "source": "huggingface",
-    "source_url": "https://huggingface.co/mistralai/Mistral-7B-v0.1",
-    "arxivId": null
-  },
-  {
-    "term": "DeepSeek",
-    "category": "AI/ML",
-    "definition": "A model designed for conversational AI with custom code capabilities.",
-    "seeAlso": [
-      "Conversational AI"
-    ],
-    "related_terms": [],
-    "examples": [
-      "Interactive customer support",
-      "Virtual assistants"
-    ],
-    "source": "huggingface",
-    "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V3",
-    "arxivId": null
-  },
-  {
     "term": "Phi",
     "category": "AI/ML",
-    "definition": "A model focused on natural language processing tasks, leveraging advanced architectures.",
+    "definition": "A text generation model developed by Microsoft, focusing on natural language processing tasks.",
     "seeAlso": [
       "NLP"
     ],
     "related_terms": [],
     "examples": [
-      "Text classification",
-      "Sentiment analysis"
+      "Used for generating human-like text.",
+      "Can assist in writing and content creation."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/microsoft/phi-2",
@@ -869,35 +640,52 @@
     ],
     "related_terms": [],
     "examples": [
-      "Art generation",
-      "Image synthesis"
+      "Used in art generation and design.",
+      "Can create high-quality images based on textual descriptions."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/stabilityai/stable-diffusion-3.5-large",
     "arxivId": null
   },
   {
-    "term": "Image-to-Video Diffusion",
+    "term": "Gemma",
     "category": "AI/ML",
-    "definition": "A technique for generating video content from images using diffusion models.",
+    "definition": "A text generation model that focuses on generating coherent and contextually relevant text.",
     "seeAlso": [
-      "Diffusion Models"
+      "GPT"
     ],
     "related_terms": [],
     "examples": [
-      "Video creation from static images",
-      "Animation generation"
+      "Used for generating articles and reports.",
+      "Can assist in creative writing."
     ],
     "source": "huggingface",
-    "source_url": "https://huggingface.co/stabilityai/stable-video-diffusion-img2vid-xt",
+    "source_url": "https://huggingface.co/google/gemma-7b",
+    "arxivId": null
+  },
+  {
+    "term": "Janus-Pro",
+    "category": "AI/ML",
+    "definition": "A unified model designed for multi-modal tasks, including text-to-image generation.",
+    "seeAlso": [
+      "Multi-Modal AI"
+    ],
+    "related_terms": [],
+    "examples": [
+      "Can generate images based on textual input.",
+      "Used in applications requiring both text and image understanding."
+    ],
+    "source": "huggingface",
+    "source_url": "https://huggingface.co/deepseek-ai/Janus-Pro-7B",
     "arxivId": null
   },
   {
     "term": "text-to-image",
     "category": "AI/ML",
-    "definition": "A type of model that generates images from textual descriptions.",
+    "definition": "A technique in AI that generates images from textual descriptions.",
     "seeAlso": [
-      "Diffusion Models"
+      "Diffusion Models",
+      "Generative Models"
     ],
     "related_terms": [],
     "examples": [
@@ -910,109 +698,32 @@
   },
   {
     "term": "safetensors",
-    "category": "Technology",
+    "category": "AI/ML",
     "definition": "A format for storing tensors that ensures safety and integrity during model loading.",
     "seeAlso": [
-      "Tensor Formats"
+      "Tensor",
+      "Model Serialization"
     ],
     "related_terms": [],
     "examples": [
-      "Used in various Hugging Face models for secure tensor storage."
-    ],
-    "source": "huggingface",
-    "source_url": "https://huggingface.co/openai-community/gpt2",
-    "arxivId": null
-  },
-  {
-    "term": "text-generation",
-    "category": "AI/ML",
-    "definition": "The process of generating coherent and contextually relevant text based on input prompts.",
-    "seeAlso": [
-      "Natural Language Processing"
-    ],
-    "related_terms": [],
-    "examples": [
-      "Chatbots",
-      "Content creation tools"
-    ],
-    "source": "huggingface",
-    "source_url": "https://huggingface.co/openai-community/gpt2",
-    "arxivId": null
-  },
-  {
-    "term": "image-text-to-text",
-    "category": "AI/ML",
-    "definition": "A model that converts images into textual descriptions and vice versa.",
-    "seeAlso": [
-      "Vision-Language Models"
-    ],
-    "related_terms": [],
-    "examples": [
-      "Image captioning systems",
-      "Visual question answering"
+      "Used in various Hugging Face models",
+      "Ensures data integrity"
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-OCR",
     "arxivId": null
   },
   {
-    "term": "automatic-speech-recognition",
-    "category": "AI/ML",
-    "definition": "The technology that enables the recognition and translation of spoken language into text.",
-    "seeAlso": [
-      "Speech-to-Text"
-    ],
-    "related_terms": [],
-    "examples": [
-      "Voice assistants",
-      "Transcription services"
-    ],
-    "source": "huggingface",
-    "source_url": "https://huggingface.co/openai/whisper-large-v3-turbo",
-    "arxivId": null
-  },
-  {
-    "term": "sentence-similarity",
-    "category": "AI/ML",
-    "definition": "A measure of how similar two sentences are in meaning.",
-    "seeAlso": [
-      "Semantic Similarity"
-    ],
-    "related_terms": [],
-    "examples": [
-      "Plagiarism detection",
-      "Duplicate content identification"
-    ],
-    "source": "huggingface",
-    "source_url": "https://huggingface.co/BAAI/bge-m3",
-    "arxivId": null
-  },
-  {
-    "term": "feature-extraction",
-    "category": "Data Science",
-    "definition": "The process of transforming raw data into a set of usable features for model training.",
-    "seeAlso": [
-      "Data Preprocessing"
-    ],
-    "related_terms": [],
-    "examples": [
-      "Extracting features from images for classification",
-      "Text vectorization for NLP"
-    ],
-    "source": "huggingface",
-    "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-OCR",
-    "arxivId": null
-  },
-  {
-    "term": "fine-tuning",
+    "term": "fine-tuned",
     "category": "AI/ML",
     "definition": "The process of taking a pre-trained model and training it further on a specific dataset.",
     "seeAlso": [
-      "Transfer Learning"
+      "Transfer Learning",
+      "Pre-trained Models"
     ],
     "related_terms": [],
     "examples": [
-      "Fine-tuning BERT on a sentiment analysis dataset",
+      "Fine-tuning BERT for sentiment analysis",
       "Fine-tuning GPT-3 for specific tasks"
     ],
     "source": "huggingface",
@@ -1020,27 +731,96 @@
     "arxivId": null
   },
   {
-    "term": "multilingual",
+    "term": "automatic-speech-recognition",
     "category": "AI/ML",
-    "definition": "Refers to models or systems that can understand and generate text in multiple languages.",
+    "definition": "The technology that enables a computer to identify and process human speech into a written format.",
     "seeAlso": [
-      "Cross-lingual Models"
+      "Speech-to-Text",
+      "Natural Language Processing"
     ],
     "related_terms": [],
     "examples": [
-      "Translation services",
-      "Multilingual chatbots"
+      "Google Speech Recognition",
+      "Apple Siri"
     ],
     "source": "huggingface",
-    "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-OCR",
+    "source_url": "https://huggingface.co/openai/whisper-large-v3-turbo",
+    "arxivId": null
+  },
+  {
+    "term": "sentence-transformers",
+    "category": "AI/ML",
+    "definition": "Models that are designed to generate embeddings for sentences, allowing for semantic similarity comparisons.",
+    "seeAlso": [
+      "BERT",
+      "Universal Sentence Encoder"
+    ],
+    "related_terms": [],
+    "examples": [
+      "Used for semantic search",
+      "Text similarity tasks"
+    ],
+    "source": "huggingface",
+    "source_url": "https://huggingface.co/BAAI/bge-m3",
+    "arxivId": null
+  },
+  {
+    "term": "diffusers",
+    "category": "AI/ML",
+    "definition": "A class of generative models that create data by gradually transforming random noise into structured outputs.",
+    "seeAlso": [
+      "Generative Models",
+      "Latent Diffusion"
+    ],
+    "related_terms": [],
+    "examples": [
+      "Stable Diffusion",
+      "DALL-E 2"
+    ],
+    "source": "huggingface",
+    "source_url": "https://huggingface.co/CompVis/stable-diffusion-v-1-4-original",
+    "arxivId": null
+  },
+  {
+    "term": "text-generation",
+    "category": "AI/ML",
+    "definition": "The task of generating coherent and contextually relevant text based on a given input.",
+    "seeAlso": [
+      "Natural Language Generation",
+      "Language Models"
+    ],
+    "related_terms": [],
+    "examples": [
+      "GPT-3",
+      "T5"
+    ],
+    "source": "huggingface",
+    "source_url": "https://huggingface.co/openai-community/gpt2",
+    "arxivId": null
+  },
+  {
+    "term": "conversational",
+    "category": "AI/ML",
+    "definition": "Refers to models designed to engage in dialogue with users, simulating human-like conversation.",
+    "seeAlso": [
+      "Chatbots",
+      "Dialogue Systems"
+    ],
+    "related_terms": [],
+    "examples": [
+      "ChatGPT",
+      "Google Dialogflow"
+    ],
+    "source": "huggingface",
+    "source_url": "https://huggingface.co/Qwen/QwQ-32B",
     "arxivId": null
   },
   {
     "term": "Grok",
     "category": "AI/ML",
-    "definition": "A model designed for text generation tasks.",
+    "definition": "A model for text generation that focuses on conversational contexts.",
     "seeAlso": [
-      "Transformer"
+      "text-generation"
     ],
     "related_terms": [],
     "examples": [
@@ -1053,9 +833,10 @@
   {
     "term": "CSM",
     "category": "AI/ML",
-    "definition": "A model for text-to-speech and audio generation.",
+    "definition": "A model family for text-to-speech and audio generation tasks.",
     "seeAlso": [
-      "Text-to-Speech"
+      "text-to-speech",
+      "transformers"
     ],
     "related_terms": [],
     "examples": [
@@ -1066,27 +847,11 @@
     "arxivId": null
   },
   {
-    "term": "Llama",
+    "term": "Personaplex",
     "category": "AI/ML",
-    "definition": "A family of models designed for text generation tasks.",
+    "definition": "A model for audio-to-audio tasks, enabling speech synthesis and transformation.",
     "seeAlso": [
-      "Transformer"
-    ],
-    "related_terms": [],
-    "examples": [
-      "Llama-2",
-      "Llama-3"
-    ],
-    "source": "huggingface",
-    "source_url": "https://huggingface.co/meta-llama/Llama-3.2-1B",
-    "arxivId": null
-  },
-  {
-    "term": "Moshi",
-    "category": "AI/ML",
-    "definition": "A model for audio-to-audio processing and speech generation.",
-    "seeAlso": [
-      "Speech-to-Speech"
+      "audio-to-audio"
     ],
     "related_terms": [],
     "examples": [
@@ -1099,9 +864,9 @@
   {
     "term": "VibeVoice",
     "category": "AI/ML",
-    "definition": "A model for text-to-speech generation.",
+    "definition": "A model for text-to-speech generation, designed for podcast and audio applications.",
     "seeAlso": [
-      "Text-to-Speech"
+      "text-to-speech"
     ],
     "related_terms": [],
     "examples": [
@@ -1112,11 +877,11 @@
     "arxivId": null
   },
   {
-    "term": "Kimi",
+    "term": "Kimi-K2",
     "category": "AI/ML",
-    "definition": "A model family for text generation and conversational AI.",
+    "definition": "A model family for text generation and conversational AI, with a focus on instruction-based tasks.",
     "seeAlso": [
-      "Transformer"
+      "text-generation"
     ],
     "related_terms": [],
     "examples": [
@@ -1128,27 +893,11 @@
     "arxivId": null
   },
   {
-    "term": "Diffusers",
+    "term": "HunyuanVideo",
     "category": "AI/ML",
-    "definition": "A technique used for image generation and manipulation.",
+    "definition": "A model for generating videos from text inputs, focusing on multimedia content creation.",
     "seeAlso": [
-      "Image-to-Image"
-    ],
-    "related_terms": [],
-    "examples": [
-      "Qwen-Image-Edit",
-      "LTX-Video"
-    ],
-    "source": "huggingface",
-    "source_url": "https://huggingface.co/Qwen/Qwen-Image-Edit",
-    "arxivId": null
-  },
-  {
-    "term": "Text-to-Video",
-    "category": "AI/ML",
-    "definition": "A model for generating video content from text descriptions.",
-    "seeAlso": [
-      "Text-to-Image"
+      "text-to-video"
     ],
     "related_terms": [],
     "examples": [
@@ -1161,14 +910,15 @@
   {
     "term": "ChatGLM",
     "category": "AI/ML",
-    "definition": "A family of models designed for conversational tasks, utilizing transformer architectures.",
+    "definition": "A model designed for conversational tasks based on the GLM architecture.",
     "seeAlso": [
+      "GLM",
       "Transformer"
     ],
     "related_terms": [],
     "examples": [
-      "Used for generating human-like responses in chat applications.",
-      "Can be fine-tuned for specific conversational domains."
+      "Used in chatbots for customer service.",
+      "Applied in virtual assistants."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/zai-org/chatglm2-6b",
@@ -1177,14 +927,14 @@
   {
     "term": "Qwen",
     "category": "AI/ML",
-    "definition": "A family of models focused on text generation and coding tasks, utilizing transformer architectures.",
+    "definition": "A model series focused on text generation and coding tasks.",
     "seeAlso": [
       "Transformer"
     ],
     "related_terms": [],
     "examples": [
-      "Generating code snippets based on natural language descriptions.",
-      "Conversational agents for coding assistance."
+      "Code generation for software development.",
+      "Chatbot applications."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct",
@@ -1193,14 +943,14 @@
   {
     "term": "CLIP",
     "category": "AI/ML",
-    "definition": "A model that connects images and text, enabling zero-shot image classification.",
+    "definition": "A model that connects images and text for zero-shot classification.",
     "seeAlso": [
-      "Zero-shot learning"
+      "Vision Transformers"
     ],
     "related_terms": [],
     "examples": [
-      "Classifying images without explicit training on those categories.",
-      "Used in applications requiring image understanding based on textual descriptions."
+      "Classifying images based on textual descriptions.",
+      "Image retrieval based on text queries."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/openai/clip-vit-large-patch14",
@@ -1209,65 +959,49 @@
   {
     "term": "Segformer",
     "category": "AI/ML",
-    "definition": "A transformer-based model for semantic segmentation tasks in images.",
+    "definition": "A model architecture for semantic segmentation tasks.",
     "seeAlso": [
-      "Semantic segmentation"
+      "Image Segmentation"
     ],
     "related_terms": [],
     "examples": [
-      "Used in autonomous driving for identifying road signs and pedestrians.",
-      "Image editing applications for background removal."
+      "Segmenting objects in images for autonomous driving.",
+      "Medical image analysis."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/briaai/RMBG-1.4",
     "arxivId": null
   },
   {
-    "term": "Gemma",
-    "category": "AI/ML",
-    "definition": "A model designed for image-text tasks, facilitating the generation of text from images and vice versa.",
-    "seeAlso": [
-      "Multimodal models"
-    ],
-    "related_terms": [],
-    "examples": [
-      "Creating descriptive captions for images.",
-      "Translating images into textual formats."
-    ],
-    "source": "huggingface",
-    "source_url": "https://huggingface.co/google/gemma-3-27b-it",
-    "arxivId": null
-  },
-  {
     "term": "Florence",
     "category": "AI/ML",
-    "definition": "A model for image-text tasks, focusing on understanding and generating content across modalities.",
+    "definition": "A model for image-text tasks, focusing on vision and language integration.",
     "seeAlso": [
-      "Multimodal models"
+      "Multimodal Models"
     ],
     "related_terms": [],
     "examples": [
-      "Used in applications that require both visual and textual understanding.",
-      "Facilitating interactive AI systems that respond to both text and images."
+      "Image captioning.",
+      "Visual question answering."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/microsoft/Florence-2-large",
     "arxivId": null
   },
   {
-    "term": "Whisper",
+    "term": "Hunyuan3D",
     "category": "AI/ML",
-    "definition": "An automatic speech recognition model that transcribes spoken language into text.",
+    "definition": "A model for generating 3D representations from images or text.",
     "seeAlso": [
-      "Speech recognition"
+      "3D Generation"
     ],
     "related_terms": [],
     "examples": [
-      "Transcribing meetings or lectures into written format.",
-      "Voice command systems for applications."
+      "Creating 3D models for games.",
+      "3D printing from descriptions."
     ],
     "source": "huggingface",
-    "source_url": "https://huggingface.co/openai/whisper-large-v2",
+    "source_url": "https://huggingface.co/tencent/Hunyuan3D-2",
     "arxivId": null
   },
   {
@@ -1279,23 +1013,24 @@
     ],
     "related_terms": [],
     "examples": [
-      "mattshumer/Reflection-Llama-3.1-70B",
-      "meta-llama/Llama-3.1-70B-Instruct"
+      "Used in chatbots for generating human-like responses.",
+      "Applied in content creation for automated writing."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/mattshumer/Reflection-Llama-3.1-70B",
     "arxivId": null
   },
   {
-    "term": "GLM",
+    "term": "GLM-5",
     "category": "AI/ML",
-    "definition": "Generalized Language Model, a model architecture for text generation and conversational AI.",
+    "definition": "A generative language model that supports multiple languages and is optimized for conversational tasks.",
     "seeAlso": [
-      "Transformer"
+      "Text Generation"
     ],
     "related_terms": [],
     "examples": [
-      "zai-org/GLM-5"
+      "Utilized in multilingual chat applications.",
+      "Employed for generating responses in customer service."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/zai-org/GLM-5",
@@ -1306,11 +1041,12 @@
     "category": "AI/ML",
     "definition": "A model that integrates image and text processing for visual question answering.",
     "seeAlso": [
-      "Image-Text Models"
+      "Visual Question Answering"
     ],
     "related_terms": [],
     "examples": [
-      "microsoft/OmniParser"
+      "Used in applications that require understanding images and generating text answers.",
+      "Applied in educational tools for interactive learning."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/microsoft/OmniParser",
@@ -1321,11 +1057,12 @@
     "category": "AI/ML",
     "definition": "A model designed for text generation and natural language processing tasks.",
     "seeAlso": [
-      "Transformer"
+      "NLP"
     ],
     "related_terms": [],
     "examples": [
-      "microsoft/Phi-3-mini-128k-instruct"
+      "Utilized in automated content generation.",
+      "Implemented in virtual assistants for improved dialogue."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/microsoft/Phi-3-mini-128k-instruct",
@@ -1334,13 +1071,14 @@
   {
     "term": "ControlNet",
     "category": "AI/ML",
-    "definition": "A framework for controlling image generation processes in diffusion models.",
+    "definition": "A framework for controlling diffusion models in text-to-image generation.",
     "seeAlso": [
-      "Diffusers"
+      "Diffusion Models"
     ],
     "related_terms": [],
     "examples": [
-      "xinsir/controlnet-union-sdxl-1.0"
+      "Used in creative applications for generating images from textual descriptions.",
+      "Applied in art generation tools."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/xinsir/controlnet-union-sdxl-1.0",
@@ -1349,13 +1087,14 @@
   {
     "term": "ChatTTS",
     "category": "AI/ML",
-    "definition": "A model for converting text to audio, enabling text-to-speech functionalities.",
+    "definition": "A model for converting text to audio, enabling speech synthesis.",
     "seeAlso": [
-      "Text-to-Audio"
+      "Text-to-Speech"
     ],
     "related_terms": [],
     "examples": [
-      "2Noise/ChatTTS"
+      "Used in virtual assistants for voice responses.",
+      "Applied in accessibility tools for reading text aloud."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/2Noise/ChatTTS",
@@ -1370,7 +1109,8 @@
     ],
     "related_terms": [],
     "examples": [
-      "Anthropic/hh-rlhf"
+      "Utilized in developing AI systems that learn from user interactions.",
+      "Applied in improving conversational agents based on user preferences."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/datasets/Anthropic/hh-rlhf",
@@ -1379,13 +1119,14 @@
   {
     "term": "FineWeb",
     "category": "Data Science",
-    "definition": "A large dataset consisting of cleaned and deduplicated web data for training language models.",
+    "definition": "A large dataset containing cleaned and deduplicated web data for training language models.",
     "seeAlso": [
       "Dataset"
     ],
     "related_terms": [],
     "examples": [
-      "HuggingFaceFW/fineweb"
+      "Used for training large language models like LLaMa.",
+      "Applied in research for natural language understanding."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/datasets/HuggingFaceFW/fineweb",
@@ -1393,14 +1134,15 @@
   },
   {
     "term": "OpenOrca",
-    "category": "AI/ML",
-    "definition": "A dataset designed for various NLP tasks, including text classification and summarization.",
+    "category": "Data Science",
+    "definition": "A dataset designed for various NLP tasks including text classification and summarization.",
     "seeAlso": [
-      "Dataset"
+      "NLP Datasets"
     ],
     "related_terms": [],
     "examples": [
-      "Open-Orca/OpenOrca"
+      "Utilized in training models for text summarization tasks.",
+      "Applied in developing classifiers for text categorization."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/datasets/Open-Orca/OpenOrca",
@@ -1411,12 +1153,13 @@
     "category": "AI/ML",
     "definition": "An open corpus of three trillion tokens for language model pretraining research.",
     "seeAlso": [
-      "Language Modeling"
+      "Language Model",
+      "Text Generation"
     ],
     "related_terms": [],
     "examples": [
       "Used for training large language models.",
-      "Facilitates research in text generation."
+      "Facilitates research in natural language processing."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/datasets/allenai/dolma",
@@ -1427,12 +1170,13 @@
     "category": "AI/ML",
     "definition": "A dataset consisting of 1.3 trillion tokens of educational web pages filtered from the FineWeb dataset.",
     "seeAlso": [
-      "Text Generation"
+      "Text Generation",
+      "Dataset"
     ],
     "related_terms": [],
     "examples": [
-      "Supports educational content generation.",
-      "Can be used for training models in educational contexts."
+      "Useful for training educational AI models.",
+      "Supports research in educational technology."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/datasets/HuggingFaceFW/fineweb-edu",
@@ -1441,14 +1185,15 @@
   {
     "term": "The Stack",
     "category": "AI/ML",
-    "definition": "A dataset containing code from 30 programming languages, designed for training models in code generation.",
+    "definition": "A dataset that includes 30 programming languages and 18 permissive licenses, aimed at code generation tasks.",
     "seeAlso": [
-      "Multilinguality"
+      "Text Generation",
+      "Programming Languages"
     ],
     "related_terms": [],
     "examples": [
-      "Used for training models to understand and generate code.",
-      "Facilitates research in programming language understanding."
+      "Facilitates the development of AI models for code completion.",
+      "Used in training models for software development."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/datasets/bigcode/the-stack",
@@ -1457,97 +1202,120 @@
   {
     "term": "Negative Embedding",
     "category": "AI/ML",
-    "definition": "A technique to unify negative prompts into a single embedding for improved model performance.",
+    "definition": "A technique to unify the basis of negative prompts into one embedding for improved generation.",
     "seeAlso": [
-      "Textual Inversion"
+      "Textual Inversion",
+      "Embedding"
     ],
     "related_terms": [],
     "examples": [
-      "Enhances image generation by refining prompts.",
-      "Improves model responses in specific contexts."
+      "Enhances image generation quality.",
+      "Used in training models for better prompt understanding."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/datasets/Nerfgun3/bad_prompt",
     "arxivId": null
   },
   {
-    "term": "Instruction-Finetuning",
+    "term": "databricks-dolly-15k",
     "category": "AI/ML",
-    "definition": "A process of training models to better follow instructions using curated datasets.",
+    "definition": "An open-source dataset of instruction-following records generated by Databricks employees.",
     "seeAlso": [
-      "Alpaca"
+      "Instruction Tuning",
+      "Question Answering"
     ],
     "related_terms": [],
     "examples": [
-      "Used to improve model performance in task-specific scenarios.",
-      "Facilitates better interaction with users."
+      "Used for training models in instruction following.",
+      "Supports research in AI behavior modeling."
+    ],
+    "source": "huggingface",
+    "source_url": "https://huggingface.co/datasets/databricks/databricks-dolly-15k",
+    "arxivId": null
+  },
+  {
+    "term": "Alpaca",
+    "category": "AI/ML",
+    "definition": "A dataset of 52,000 instructions and demonstrations generated by OpenAI's text-davinci-003 engine.",
+    "seeAlso": [
+      "Instruction Tuning",
+      "Language Model"
+    ],
+    "related_terms": [],
+    "examples": [
+      "Facilitates instruction tuning for language models.",
+      "Improves model adherence to user instructions."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/datasets/tatsu-lab/alpaca",
     "arxivId": null
   },
   {
-    "term": "OpenThoughts",
+    "term": "LMSYS-Chat-1M",
     "category": "AI/ML",
-    "definition": "A synthetic reasoning dataset designed for training models on various reasoning tasks.",
+    "definition": "A large-scale dataset containing one million real-world conversations with state-of-the-art LLMs.",
     "seeAlso": [
-      "Synthetic Data"
+      "LLM",
+      "Conversation Dataset"
     ],
     "related_terms": [],
     "examples": [
-      "Used for fine-tuning models on reasoning tasks.",
-      "Supports academic research in AI reasoning."
+      "Used for training conversational AI models.",
+      "Supports research in dialogue systems."
+    ],
+    "source": "huggingface",
+    "source_url": "https://huggingface.co/datasets/lmsys/lmsys-chat-1m",
+    "arxivId": null
+  },
+  {
+    "term": "Falcon RefinedWeb",
+    "category": "AI/ML",
+    "definition": "A massive English web dataset built through stringent filtering and deduplication of CommonCrawl.",
+    "seeAlso": [
+      "Web Dataset",
+      "Text Generation"
+    ],
+    "related_terms": [],
+    "examples": [
+      "Used for training language models with high-quality web data.",
+      "Supports research in web-based AI applications."
+    ],
+    "source": "huggingface",
+    "source_url": "https://huggingface.co/datasets/tiiuae/falcon-refinedweb",
+    "arxivId": null
+  },
+  {
+    "term": "OpenThoughts-114k",
+    "category": "AI/ML",
+    "definition": "An open synthetic reasoning dataset with 114k high-quality examples covering various subjects.",
+    "seeAlso": [
+      "Synthetic Dataset",
+      "Reasoning"
+    ],
+    "related_terms": [],
+    "examples": [
+      "Used for training reasoning models.",
+      "Supports research in synthetic data generation."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/datasets/open-thoughts/OpenThoughts-114k",
     "arxivId": null
   },
   {
-    "term": "PhysicalAI",
+    "term": "Chinese-DeepSeek-R1-Distill-data-110k",
     "category": "AI/ML",
-    "definition": "A dataset providing multi-sensor data for autonomous vehicle research.",
+    "definition": "A Chinese open-source distilled dataset containing 110K samples for instruction tuning.",
     "seeAlso": [
-      "Autonomous Vehicles"
+      "Distillation",
+      "Instruction Tuning"
     ],
     "related_terms": [],
     "examples": [
-      "Used for training models in self-driving technology.",
-      "Supports research in traffic and environmental conditions."
+      "Used for training models in Chinese language understanding.",
+      "Supports research in multilingual AI applications."
     ],
     "source": "huggingface",
-    "source_url": "https://huggingface.co/datasets/nvidia/PhysicalAI-Autonomous-Vehicles",
-    "arxivId": null
-  },
-  {
-    "term": "Alpaca-CoT",
-    "category": "AI/ML",
-    "definition": "A collection of instruction-tuning datasets standardized for use with the Alpaca model.",
-    "seeAlso": [
-      "Instruction-Finetuning"
-    ],
-    "related_terms": [],
-    "examples": [
-      "Facilitates research in instruction-following models.",
-      "Standardizes datasets for easier integration."
-    ],
-    "source": "huggingface",
-    "source_url": "https://huggingface.co/datasets/QingyiSi/Alpaca-CoT",
-    "arxivId": null
-  },
-  {
-    "term": "ImageNet",
-    "category": "AI/ML",
-    "definition": "A large-scale image dataset organized according to the WordNet hierarchy, commonly used for image classification tasks.",
-    "seeAlso": [
-      "Image Classification"
-    ],
-    "related_terms": [],
-    "examples": [
-      "Used for training convolutional neural networks.",
-      "Serves as a benchmark for image classification models."
-    ],
-    "source": "huggingface",
-    "source_url": "https://huggingface.co/datasets/ILSVRC/imagenet-1k",
+    "source_url": "https://huggingface.co/datasets/Congliu/Chinese-DeepSeek-R1-Distill-data-110k",
     "arxivId": null
   },
   {
@@ -1555,12 +1323,12 @@
     "category": "AI/ML",
     "definition": "A large-scale dataset for mathematical reasoning consisting of 220k math problems with reasoning traces.",
     "seeAlso": [
-      "Math Verify",
-      "DeepSeek"
+      "DeepSeek",
+      "Math Verify"
     ],
     "related_terms": [],
     "examples": [
-      "Used for training models in mathematical problem-solving.",
+      "Used for training models in mathematical reasoning tasks.",
       "Evaluated using Llama-3.3-70B-Instruct."
     ],
     "source": "huggingface",
@@ -1573,12 +1341,12 @@
     "definition": "A dataset for persona-driven data synthesis methodology, containing 1 billion personas.",
     "seeAlso": [
       "Synthetic Data",
-      "Data Synthesis"
+      "Text Generation"
     ],
     "related_terms": [],
     "examples": [
-      "Utilized for generating diverse conversational agents.",
-      "Supports text generation tasks."
+      "Used for generating diverse conversational agents.",
+      "Supports various NLP tasks like text classification."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/datasets/proj-persona/PersonaHub",
@@ -1587,15 +1355,15 @@
   {
     "term": "COIG-CQIA",
     "category": "AI/ML",
-    "definition": "An open-source dataset for Chinese instruction fine-tuning, focusing on high-quality human interaction data.",
+    "definition": "A high-quality instruction fine-tuning dataset for Chinese NLP, focusing on human interaction behavior.",
     "seeAlso": [
-      "Instruction Fine-Tuning",
+      "Instruction Tuning",
       "NLP"
     ],
     "related_terms": [],
     "examples": [
-      "Used for training models in Chinese NLP tasks.",
-      "Provides quality instruction data for AI applications."
+      "Fine-tuning models for better understanding of Chinese instructions.",
+      "Used in research inspired by LIMA."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/datasets/m-a-p/COIG-CQIA",
@@ -1606,13 +1374,13 @@
     "category": "AI/ML",
     "definition": "A dataset comprising instruction data crucial for model performance, containing millions of instances.",
     "seeAlso": [
-      "Fine-Tuning",
+      "Fine-tuning",
       "Instruction Data"
     ],
     "related_terms": [],
     "examples": [
-      "Applied in training large language models.",
-      "Enhances model understanding of instructions."
+      "Used to improve instruction-following capabilities of models.",
+      "Supports large-scale model training."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/datasets/BAAI/Infinity-Instruct",
@@ -1621,15 +1389,15 @@
   {
     "term": "MMLU",
     "category": "AI/ML",
-    "definition": "A massive multitask language understanding dataset designed to evaluate model performance across various tasks.",
+    "definition": "A massive multitask test for measuring language understanding across various tasks.",
     "seeAlso": [
       "Multitask Learning",
       "Language Understanding"
     ],
     "related_terms": [],
     "examples": [
-      "Used for benchmarking language models.",
-      "Includes diverse question types for evaluation."
+      "Benchmark for evaluating model performance on diverse tasks.",
+      "Used in ICLR 2021 research."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/datasets/cais/mmlu",
@@ -1638,15 +1406,15 @@
   {
     "term": "Cosmopedia",
     "category": "AI/ML",
-    "definition": "A dataset containing diverse cultural and societal information, generated using AI models.",
+    "definition": "A dataset emphasizing diversity, generated using prompts from a model.",
     "seeAlso": [
       "DALL-E",
-      "Cultural Data"
+      "Synthetic Data"
     ],
     "related_terms": [],
     "examples": [
-      "Utilized for training models on cultural understanding.",
-      "Supports diversity in AI applications."
+      "Used for generating culturally diverse content.",
+      "Supports research in understanding cultural representations."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/datasets/HuggingFaceTB/cosmopedia",
@@ -1655,15 +1423,15 @@
   {
     "term": "UltraChat 200k",
     "category": "AI/ML",
-    "definition": "A filtered version of the UltraChat dataset used for training chat models, containing 200k dialogues.",
+    "definition": "A filtered dataset of dialogues used to train a state-of-the-art chat model.",
     "seeAlso": [
       "ChatGPT",
-      "Dialogue Systems"
+      "Supervised Fine Tuning"
     ],
     "related_terms": [],
     "examples": [
-      "Used for supervised fine-tuning of chat models.",
-      "Enhances conversational AI capabilities."
+      "Used for improving conversational AI models.",
+      "Contains a subset of dialogues for efficient training."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/datasets/HuggingFaceH4/ultrachat_200k",
@@ -1672,15 +1440,15 @@
   {
     "term": "Llama-Nemotron-Post-Training-Dataset",
     "category": "AI/ML",
-    "definition": "A dataset supporting improvements in math, code, and reasoning capabilities of the Llama instruct model.",
+    "definition": "A dataset supporting improvements in math, code, and reasoning capabilities of the Llama model.",
     "seeAlso": [
-      "Post-Training",
+      "SFT",
       "Reinforcement Learning"
     ],
     "related_terms": [],
     "examples": [
-      "Used to enhance model performance in reasoning tasks.",
-      "Supports training for code generation."
+      "Enhances model performance in reasoning tasks.",
+      "Contains additional math and code reasoning data."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/datasets/nvidia/Llama-Nemotron-Post-Training-Dataset",
@@ -1689,15 +1457,15 @@
   {
     "term": "WikiText",
     "category": "AI/ML",
-    "definition": "A language modeling dataset consisting of over 100 million tokens from Wikipedia articles.",
+    "definition": "A language modeling dataset containing over 100 million tokens from Wikipedia articles.",
     "seeAlso": [
       "Language Modeling",
-      "Text Generation"
+      "NLP Datasets"
     ],
     "related_terms": [],
     "examples": [
       "Used for training language models.",
-      "Provides a rich source of natural language data."
+      "Provides a rich source of diverse text data."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/datasets/Salesforce/wikitext",
@@ -1706,15 +1474,15 @@
   {
     "term": "synthetic_text_to_sql",
     "category": "AI/ML",
-    "definition": "A dataset of high-quality synthetic Text-to-SQL samples designed for training SQL generation models.",
+    "definition": "A dataset of high-quality synthetic Text-to-SQL samples designed for function-calling applications.",
     "seeAlso": [
       "Text-to-SQL",
-      "Data Synthesis"
+      "SQL Generation"
     ],
     "related_terms": [],
     "examples": [
-      "Utilized in developing models for database querying.",
-      "Supports automated SQL generation tasks."
+      "Used for training models to convert natural language to SQL queries.",
+      "Supports automated data generation pipelines."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/datasets/gretelai/synthetic_text_to_sql",
@@ -1723,15 +1491,15 @@
   {
     "term": "GAIA",
     "category": "AI/ML",
-    "definition": "A benchmark dataset aimed at evaluating next-generation LLMs with augmented capabilities.",
+    "definition": "A benchmark dataset for evaluating next-generation LLMs with augmented capabilities.",
     "seeAlso": [
-      "Benchmarking",
-      "LLM Evaluation"
+      "LLMs",
+      "Tooling"
     ],
     "related_terms": [],
     "examples": [
       "Used to assess model performance with added tooling.",
-      "Facilitates research in LLM capabilities."
+      "Contains complex questions requiring diverse capabilities."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/datasets/gaia-benchmark/GAIA",
@@ -1740,15 +1508,15 @@
   {
     "term": "DiffusionDB",
     "category": "AI/ML",
-    "definition": "A large-scale text-to-image prompt dataset generated by Stable Diffusion, containing 2 million images.",
+    "definition": "The first large-scale text-to-image prompt dataset generated by Stable Diffusion.",
     "seeAlso": [
-      "Text-to-Image",
-      "Stable Diffusion"
+      "Stable Diffusion",
+      "Prompt Engineering"
     ],
     "related_terms": [],
     "examples": [
-      "Supports research in understanding prompt generation.",
-      "Used for training image generation models."
+      "Used for research in understanding prompt effects on image generation.",
+      "Contains millions of images with user-specified prompts."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/datasets/poloclub/diffusiondb",
@@ -1757,15 +1525,15 @@
   {
     "term": "LLaVA Visual Instruct 150K",
     "category": "AI/ML",
-    "definition": "A dataset for visual instruction tuning, constructed for multimodal instruction-following tasks.",
+    "definition": "A dataset for visual instruction tuning, constructed for multimodal capabilities.",
     "seeAlso": [
       "Multimodal Learning",
       "Visual Question Answering"
     ],
     "related_terms": [],
     "examples": [
-      "Used to train models for visual instruction tasks.",
-      "Enhances capabilities of models in understanding visual inputs."
+      "Used to enhance models' understanding of visual instructions.",
+      "Supports training for GPT-4 vision/language capabilities."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/datasets/liuhaotian/LLaVA-Instruct-150K",
@@ -1774,7 +1542,7 @@
   {
     "term": "APIGen Function-Calling Datasets",
     "category": "AI/ML",
-    "definition": "A dataset containing data collected for function-calling applications, verified through multiple stages.",
+    "definition": "A dataset containing data for function-calling applications, verified through multiple stages.",
     "seeAlso": [
       "Function Calling",
       "Automated Data Generation"
@@ -1782,7 +1550,7 @@
     "related_terms": [],
     "examples": [
       "Used for training models in API interaction.",
-      "Supports development of function-calling applications."
+      "Supports high-quality dataset generation for function-calling tasks."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/datasets/Salesforce/xlam-function-calling-60k",
@@ -1791,15 +1559,15 @@
   {
     "term": "NaturalReasoning",
     "category": "AI/ML",
-    "definition": "A large-scale dataset for general reasoning tasks, consisting of challenging reasoning questions.",
+    "definition": "A large-scale dataset for general reasoning tasks, containing challenging reasoning questions.",
     "seeAlso": [
       "Reasoning Tasks",
-      "Benchmarking"
+      "Benchmark Datasets"
     ],
     "related_terms": [],
     "examples": [
-      "Used to evaluate model reasoning capabilities.",
-      "Includes deduplicated questions from popular benchmarks."
+      "Used for evaluating model reasoning capabilities.",
+      "Contains deduplicated questions from popular benchmarks."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/datasets/facebook/natural_reasoning",
@@ -1808,15 +1576,15 @@
   {
     "term": "NuminaMath CoT",
     "category": "AI/ML",
-    "definition": "A dataset of math problems formatted in a Chain of Thought (CoT) manner, aimed at enhancing reasoning.",
+    "definition": "A dataset of math problems formatted in a Chain of Thought manner, aiding reasoning tasks.",
     "seeAlso": [
       "Chain of Thought",
-      "Math Problem Solving"
+      "Math Datasets"
     ],
     "related_terms": [],
     "examples": [
       "Used for training models in mathematical reasoning.",
-      "Supports development of AI in educational applications."
+      "Contains a variety of math problems from different sources."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/datasets/AI-MO/NuminaMath-CoT",
@@ -1825,15 +1593,15 @@
   {
     "term": "No Robots",
     "category": "AI/ML",
-    "definition": "A high-quality dataset of instructions created by human annotators for supervised fine-tuning.",
+    "definition": "A high-quality instruction dataset created by human annotators for supervised fine-tuning.",
     "seeAlso": [
       "Instruction Following",
-      "Supervised Fine-Tuning"
+      "Supervised Fine Tuning"
     ],
     "related_terms": [],
     "examples": [
-      "Used to improve language model adherence to instructions.",
-      "Supports development of more reliable AI systems."
+      "Used to improve language models' ability to follow instructions.",
+      "Modelled after OpenAI's InstructGPT dataset."
     ],
     "source": "huggingface",
     "source_url": "https://huggingface.co/datasets/HuggingFaceH4/no_robots",
