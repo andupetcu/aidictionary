@@ -3,9 +3,10 @@ export interface Props {
   title: string;
   description?: string;
   jsonLd?: object;
+  extraJsonLd?: object;
 }
 
-const { title, description = "The ABCs of Everything — A comprehensive dictionary of technology, AI, design, programming, and more.", jsonLd } = Astro.props;
+const { title, description = "The ABCs of Everything — A comprehensive dictionary of technology, AI, design, programming, and more.", jsonLd, extraJsonLd } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 <!DOCTYPE html>
@@ -14,6 +15,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content={description} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:site_name" content="AI Dictionary — The ABCs of Everything" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="canonical" href={canonicalURL} />
@@ -23,6 +32,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <title>{title}</title>
   <script defer src="https://analytics.noru1.ro/script.js" data-website-id="1fa304d4-e56d-4959-a9c1-5039454de7fc"></script>
   {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+  {extraJsonLd && <script type="application/ld+json" set:html={JSON.stringify(extraJsonLd)} />}
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "WebSite",

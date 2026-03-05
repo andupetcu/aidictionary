@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+Sitemap: https://aidictionary.dev/api/sitemap.xml
 Sitemap: https://aidictionary.dev/sitemap-index.xml
