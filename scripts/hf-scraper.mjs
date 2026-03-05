@@ -29,8 +29,8 @@ async function fetchJSON(url) {
 async function fetchSources() {
   const [dailyRaw, modelsRaw, datasetsRaw] = await Promise.allSettled([
     fetchJSON('https://huggingface.co/api/daily_papers'),
-    fetchJSON('https://huggingface.co/api/models?sort=trending&limit=100'),
-    fetchJSON('https://huggingface.co/api/datasets?sort=trending&limit=50'),
+    fetchJSON('https://huggingface.co/api/models?sort=likes&direction=-1&limit=100'),
+    fetchJSON('https://huggingface.co/api/datasets?sort=likes&direction=-1&limit=50'),
   ]);
 
   const daily = dailyRaw.status === 'fulfilled' ? dailyRaw.value : [];

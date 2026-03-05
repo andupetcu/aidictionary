@@ -1,0 +1,104 @@
+[
+  {
+    "term": "Single-minus amplitudes",
+    "category": "Quantum Gravity",
+    "definition": "A type of amplitude used in quantum field theory, particularly in the context of gravitational interactions.",
+    "seeAlso": [
+      "Graviton",
+      "Tree Amplitudes"
+    ],
+    "related_terms": [],
+    "examples": [
+      "Used in deriving nonzero graviton tree amplitudes.",
+      "Extended to analyze gravitational interactions."
+    ],
+    "source": "blogs",
+    "source_url": "https://openai.com/index/extending-single-minus-amplitudes-to-gravitons",
+    "arxivId": null
+  },
+  {
+    "term": "Learning Outcomes Measurement Suite",
+    "category": "AI/ML",
+    "definition": "A framework developed to assess the impact of AI on educational outcomes over time.",
+    "seeAlso": [
+      "Educational AI",
+      "Assessment Tools"
+    ],
+    "related_terms": [],
+    "examples": [
+      "Evaluates AI's effectiveness in diverse educational settings.",
+      "Tracks learning progress across different environments."
+    ],
+    "source": "blogs",
+    "source_url": "https://openai.com/index/understanding-ai-and-learning-outcomes",
+    "arxivId": null
+  },
+  {
+    "term": "Stateful Runtime Environment",
+    "category": "AI/ML",
+    "definition": "An environment that provides persistent orchestration, memory, and secure execution for multi-step AI workflows.",
+    "seeAlso": [
+      "Orchestration",
+      "AI Workflows"
+    ],
+    "related_terms": [],
+    "examples": [
+      "Enables complex AI tasks with memory retention.",
+      "Supports secure execution of AI agents."
+    ],
+    "source": "blogs",
+    "source_url": "https://openai.com/index/introducing-the-stateful-runtime-environment-for-agents-in-amazon-bedrock",
+    "arxivId": null
+  },
+  {
+    "term": "DraftNEPABench",
+    "category": "Benchmark",
+    "definition": "A benchmark designed to evaluate the efficiency of AI coding agents in accelerating federal permitting processes.",
+    "seeAlso": [
+      "NEPA",
+      "AI Coding Agents"
+    ],
+    "related_terms": [],
+    "examples": [
+      "Demonstrates potential to reduce NEPA drafting time.",
+      "Modernizes infrastructure review processes."
+    ],
+    "source": "blogs",
+    "source_url": "https://openai.com/index/pacific-northwest-national-laboratory",
+    "arxivId": null
+  },
+  {
+    "term": "Gemini 3.1 Flash-Lite",
+    "category": "AI/ML Model",
+    "definition": "The latest model in the Gemini series, optimized for speed and cost-efficiency in AI applications.",
+    "seeAlso": [
+      "AI Model Optimization",
+      "Scalable AI"
+    ],
+    "related_terms": [],
+    "examples": [
+      "Designed for high-performance AI tasks.",
+      "Offers rapid processing capabilities."
+    ],
+    "source": "blogs",
+    "source_url": "https://deepmind.google/blog/gemini-3-1-flash-lite-built-for-intelligence-at-scale/",
+    "arxivId": null
+  },
+  {
+    "term": "Nano Banana 2",
+    "category": "AI/ML Model",
+    "definition": "An advanced image generation model that combines high-speed processing with production-ready specifications.",
+    "seeAlso": [
+      "Image Generation",
+      "AI Model Performance"
+    ],
+    "related_terms": [],
+    "examples": [
+      "Provides subject consistency in generated images.",
+      "Utilizes advanced world knowledge for better outputs."
+    ],
+    "source": "blogs",
+    "source_url": "https://deepmind.google/blog/nano-banana-2-combining-pro-capabilities-with-lightning-fast-speed/",
+    "arxivId": null
+  }
+]

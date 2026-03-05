@@ -1,0 +1,121 @@
+[
+  {
+    "term": "Timber",
+    "category": "Machine Learning",
+    "definition": "AOT compiler that converts classical ML models (XGBoost, LightGBM, scikit-learn, CatBoost, ONNX) into native C99 inference code for faster serving.",
+    "seeAlso": [
+      "AOT Compilation",
+      "Model Serving"
+    ],
+    "related_terms": [],
+    "examples": [
+      "Compile a scikit-learn model to C for deployment.",
+      "Serve a CatBoost model with 336x faster inference."
+    ],
+    "source": "github",
+    "source_url": "https://github.com/kossisoroyce/timber",
+    "arxivId": null
+  },
+  {
+    "term": "libdragon",
+    "category": "Game Development",
+    "definition": "A software development kit (SDK) for creating homebrew games on the Nintendo 64 platform.",
+    "seeAlso": [
+      "N64 Homebrew",
+      "Game SDK"
+    ],
+    "related_terms": [],
+    "examples": [
+      "Develop a Zelda-style game using libdragon.",
+      "Implement AI NPCs in a retro game."
+    ],
+    "source": "github",
+    "source_url": "https://github.com/Scottcjn/legend-of-elya-n64",
+    "arxivId": null
+  },
+  {
+    "term": "KV Cache",
+    "category": "AI/ML",
+    "definition": "A caching mechanism that stores key/value states across decoding steps to enhance the efficiency of Large Language Model inference.",
+    "seeAlso": [
+      "LLM Efficiency",
+      "Caching Techniques"
+    ],
+    "related_terms": [],
+    "examples": [
+      "Reduce redundant computations in LLMs.",
+      "Improve inference speed for AI models."
+    ],
+    "source": "github",
+    "source_url": "https://github.com/dataflowr/llm_efficiency",
+    "arxivId": null
+  },
+  {
+    "term": "LoRA",
+    "category": "AI/ML",
+    "definition": "A technique for fine-tuning Large Language Models that reduces the number of trainable parameters, making the process more efficient.",
+    "seeAlso": [
+      "Model Fine-Tuning",
+      "Parameter Efficiency"
+    ],
+    "related_terms": [],
+    "examples": [
+      "Fine-tune a large model with fewer resources.",
+      "Apply LoRA to enhance model performance."
+    ],
+    "source": "github",
+    "source_url": "https://github.com/dataflowr/llm_efficiency",
+    "arxivId": null
+  },
+  {
+    "term": "MCP Protocol",
+    "category": "AI/ML",
+    "definition": "Model Context Protocol, a framework for managing interactions between AI agents and their environments, facilitating efficient communication and task execution.",
+    "seeAlso": [
+      "AI Agent Framework",
+      "Multi-Agent Systems"
+    ],
+    "related_terms": [],
+    "examples": [
+      "Implement a multi-agent system using MCP.",
+      "Orchestrate AI tasks with context management."
+    ],
+    "source": "github",
+    "source_url": "https://github.com/antiv/mate",
+    "arxivId": null
+  },
+  {
+    "term": "OpenClaw",
+    "category": "AI/ML",
+    "definition": "An AI agent framework that allows for the development and deployment of AI agents with version-controlled identities, rules, and skills.",
+    "seeAlso": [
+      "AI Agent Framework",
+      "Version Control"
+    ],
+    "related_terms": [],
+    "examples": [
+      "Create a git-native AI agent.",
+      "Manage agent skills within a git repository."
+    ],
+    "source": "github",
+    "source_url": "https://github.com/open-gitagent/gitclaw",
+    "arxivId": null
+  },
+  {
+    "term": "DLLHijackHunter",
+    "category": "Cybersecurity",
+    "definition": "An automated tool for detecting DLL hijacking vulnerabilities on Windows, providing tiered confidence scoring for exploitable DLLs.",
+    "seeAlso": [
+      "DLL Injection",
+      "Cybersecurity Tools"
+    ],
+    "related_terms": [],
+    "examples": [
+      "Scan a Windows application for DLL hijacking risks.",
+      "Use DLLHijackHunter in a pentesting workflow."
+    ],
+    "source": "github",
+    "source_url": "https://github.com/ghostvectoracademy/DLLHijackHunter",
+    "arxivId": null
+  }
+]

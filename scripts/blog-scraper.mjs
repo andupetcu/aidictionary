@@ -12,10 +12,10 @@ import {
 } from './lib/shared.mjs';
 
 const FEEDS = [
-  { name: 'Anthropic', url: 'https://www.anthropic.com/feed.xml' },
+  // Anthropic has no public RSS feed
   { name: 'OpenAI', url: 'https://openai.com/blog/rss.xml' },
   { name: 'DeepMind', url: 'https://deepmind.google/blog/rss.xml' },
-  { name: 'Meta AI', url: 'https://ai.meta.com/blog/rss/' },
+  { name: 'Meta AI', url: 'https://ai.meta.com/blog/rss.xml/' },
   { name: 'Google AI Blog', url: 'https://blog.research.google/feeds/posts/default?alt=rss' },
   { name: 'Hugging Face Blog', url: 'https://huggingface.co/blog/feed.xml' },
 ];

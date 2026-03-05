@@ -10,6 +10,8 @@ import {
   writeDataFile,
 } from './lib/shared.mjs';
 
+const GH_TOKEN = process.env.GH_TOKEN || process.env.GITHUB_TOKEN || '';
+
 const TOPICS = [
   'machine-learning',
   'artificial-intelligence',
@@ -44,6 +46,7 @@ async function fetchRepoReadme(fullName) {
       headers: {
         Accept: 'application/vnd.github.raw+json',
         'User-Agent': 'aidictionary-scraper',
+          ...(GH_TOKEN ? { Authorization: `token ${GH_TOKEN}` } : {}),
       },
       signal: AbortSignal.timeout(15000),
     });
@@ -62,12 +65,13 @@ async function fetchTrendingRepos(days) {
 
   for (const topic of TOPICS) {
     try {
-      const q = encodeURIComponent(`stars:>100 created:>${createdAfter} topic:${topic}`);
+      const q = encodeURIComponent(`stars:>20 created:>${createdAfter} topic:${topic}`);
       const url = `https://api.github.com/search/repositories?q=${q}&sort=stars&order=desc&per_page=40`;
       const res = await fetch(url, {
         headers: {
           Accept: 'application/vnd.github+json',
           'User-Agent': 'aidictionary-scraper',
+          ...(GH_TOKEN ? { Authorization: `token ${GH_TOKEN}` } : {}),
         },
         signal: AbortSignal.timeout(25000),
       });
